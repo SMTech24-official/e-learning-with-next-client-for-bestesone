@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormProvider, useForm } from "react-hook-form";
 import cn from "../../../../utils/cn";
+import { ConfigProvider } from "antd";
 
 const MyFormWrapper = ({
   onSubmit,
@@ -27,7 +28,10 @@ const MyFormWrapper = ({
   }
 
   const methods = useForm(formConfig);
-  const { handleSubmit, reset } = methods;
+  const {
+    handleSubmit,
+    //  reset
+  } = methods;
 
   const submit = (data: any) => {
     onSubmit(data);
@@ -35,11 +39,26 @@ const MyFormWrapper = ({
   };
 
   return (
-    <FormProvider {...methods}>
-      <form className={cn("", className)} onSubmit={handleSubmit(submit)}>
-        {children}
-      </form>
-    </FormProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Select: {
+            hoverBorderColor: "#7F56D9",
+            activeBorderColor: "#7F56D9",
+          },
+          Input: {
+            hoverBorderColor: "#7F56D9",
+            activeBorderColor: "#7F56D9",
+          }
+        },
+      }}
+    >
+      <FormProvider {...methods}>
+        <form className={cn("", className)} onSubmit={handleSubmit(submit)}>
+          {children}
+        </form>
+      </FormProvider>
+    </ConfigProvider>
   );
 };
 
