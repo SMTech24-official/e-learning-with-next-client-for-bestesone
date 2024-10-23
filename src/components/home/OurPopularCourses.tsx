@@ -21,8 +21,8 @@ const OurPopularCourses = () => {
   const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
-    <div className="container">
-      <h3 className="text-center text-5xl font-bold leading-[64px] mb-4">
+    <div className="container lg:pt-[100px] pt-[60px] pb-[50px]">
+      <h3 className="text-center sm:text-[48px] text-[34px] font-bold mb-4">
         Our Popular Courses
       </h3>
       <p className="text-center text-[#667085] text-base font-normal leading-6 mb-10">
@@ -46,7 +46,7 @@ const OurPopularCourses = () => {
         </Button>
         <Button
           variant={currentType === "data-science" ? "default" : "outline"}
-         className="p-2 sm:px-5 sm:py-[10px]"
+          className="p-2 sm:px-5 sm:py-[10px]"
           onClick={() => setQueryValue("data-science")}
         >
           Data Science

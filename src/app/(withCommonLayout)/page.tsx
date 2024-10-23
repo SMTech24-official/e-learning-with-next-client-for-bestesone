@@ -6,7 +6,7 @@ const commonLayoutHomePage = () => {
   return (
     <>
       <Banner />
-      <OurPopularCourses/>
+      <OurPopularCourses />
     </>
   );
 };
