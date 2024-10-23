@@ -9,8 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        primary: "#7F56D9",
+        "primary-light": "#F7F3FF",
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      container: {
+        screens: {
+          DEFAULT: "1200px",
+        },
+        center: true,
+        padding: "2rem",
       },
     },
   },

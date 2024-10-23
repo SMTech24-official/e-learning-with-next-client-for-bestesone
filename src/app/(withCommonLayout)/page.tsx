@@ -1,11 +1,12 @@
-import React from 'react';
+import Banner from "@/components/home/Banner";
+import React from "react";
 
 const commonLayoutHomePage = () => {
-    return (
-        <div>
-            commonLayoutHomePage
-        </div>
-    );
+  return (
+    <>
+      <Banner />
+    </>
+  );
 };
 
 export default commonLayoutHomePage;
