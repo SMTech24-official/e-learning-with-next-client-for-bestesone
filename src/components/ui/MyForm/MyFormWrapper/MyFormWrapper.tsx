@@ -49,7 +49,8 @@ const MyFormWrapper = ({
           Input: {
             hoverBorderColor: "#7F56D9",
             activeBorderColor: "#7F56D9",
-          }
+          },
+          
         },
       }}
     >
