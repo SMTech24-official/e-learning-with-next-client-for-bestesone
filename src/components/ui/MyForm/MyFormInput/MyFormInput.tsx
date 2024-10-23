@@ -7,11 +7,13 @@ const MyFormInput = ({
   name,
   label,
   inputClassName,
+  placeHolder,
 }: {
   type?: string;
   name: string;
   label: string;
   inputClassName?: string;
+  placeHolder?: string;
 }) => {
   const { control } = useFormContext();
   return (
@@ -34,9 +36,10 @@ const MyFormInput = ({
                 id={name}
                 size="large"
                 className={cn(
-                  "focus:!border-[#7F56D9] hover:!border-[#7F56D9]",
+                  // "focus:!border-[#7F56D9] hover:!border-[#7F56D9] py-",
                   inputClassName
                 )}
+                placeholder={placeHolder}
               />
             </Form.Item>
             {error && <small style={{ color: "red" }}>{error.message}</small>}
