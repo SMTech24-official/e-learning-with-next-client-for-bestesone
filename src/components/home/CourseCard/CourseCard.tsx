@@ -14,7 +14,7 @@ const CourseCard = () => {
           alt="Banner Image"
           className="object-contain "
         />
-      <div className="absolute bottom-4 left-4 px-4 py-2 flex items-center justify-center gap-1 rounded-[16px] bg-[rgba(255,255,255,0.50)] backdrop-blur-[2px]">
+        <div className="absolute bottom-4 left-4 px-4 py-2 flex items-center justify-center gap-1 rounded-[16px] bg-[rgba(255,255,255,0.50)] backdrop-blur-[2px]">
           <Image
             src={star}
             width={15}

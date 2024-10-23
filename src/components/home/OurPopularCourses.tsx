@@ -11,11 +11,11 @@ const OurPopularCourses = () => {
   // Get the current 'type' query parameter
   const currentType = searchParams.get("type") || "all";
 
-  // Function to set the query value in the URL
+  // Function to set the query value in the URL without reloading the page
   const setQueryValue = (courseType: string) => {
     const newParams = new URLSearchParams(searchParams);
     newParams.set("type", courseType);
-    router.push(`?${newParams.toString()}`);
+    router.replace(`?${newParams.toString()}`, { scroll: false });
   };
 
   const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -58,7 +58,7 @@ const OurPopularCourses = () => {
 
       {/* Your course listings here */}
 
-      <div className="flex flex-wrap justify-center gap-4 m">
+      <div className="grid grid-cols-4 gap-4 m">
         {count?.map((course, index) => (
           <CourseCard key={index} />
         ))}
