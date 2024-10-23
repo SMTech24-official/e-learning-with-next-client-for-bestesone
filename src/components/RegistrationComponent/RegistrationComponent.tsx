@@ -8,6 +8,7 @@ import { z } from "zod";
 import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
 import MyFormInput from "../ui/MyForm/MyFormInput/MyFormInput";
 
+
 const validationSchema = z.object({
   full_name: z
     .string({
@@ -64,9 +65,11 @@ const validationSchema = z.object({
 });
 
 const RegistrationComponent = () => {
+  
   const handleSubmit = (data: any) => {
     console.log(data);
   };
+
 
   return (
     <>
