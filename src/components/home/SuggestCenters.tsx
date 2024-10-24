@@ -53,7 +53,7 @@ const SuggestCenters = () => {
       <h3 className="text-center text-3xl sm:text-5xl font-bold leading-[64px] mt-4  sm:mt-20 sm:mb-6">
         Suggest Centers, Collage & University
       </h3>
-      <p className="text-center text-[#667085] text-base font-normal leading-6 mb-4 sm:mb-10">
+      <p className="text-center text-[#667085] text-base font-normal leading-6 mb-4 sm:mb-8 md:mb-10">
         Explore Our Top-Rated Centers, Collage and University
       </p>
 
@@ -69,7 +69,7 @@ const SuggestCenters = () => {
 
       <div className="w-full flex justify-center my-10">
         <Button variant={"outline"} className="">
-          View All Courses
+        View All University
         </Button>
       </div>
     </div>
