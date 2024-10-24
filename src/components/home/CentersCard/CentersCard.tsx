@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import cardImage from "@/assets/cardImages/courseCard/CourseCard.png";
+import cardImage from "@/assets/cardImages/CentersCard/CentersCardImage.jpg";
 import star from "@/assets/cardImages/courseCard/star.png";
 import { MdPeople } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 
-const CourseCard = () => {
+const CentersCard = () => {
   return (
-    <div className="rounded-[16px] bg-primary-light py-5 px-4">
+    <div className="rounded-[16px] bg-primary py-5 px-4">
       <div className="rounded-[16px] overflow-hidden relative mb-3">
         <Image
           src={cardImage}
@@ -53,4 +53,4 @@ const CourseCard = () => {
   );
 };
 
-export default CourseCard;
+export default CentersCard;
