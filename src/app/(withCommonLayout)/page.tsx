@@ -1,7 +1,7 @@
 import Banner from "@/components/home/Banner";
-import Footer from "@/shared/Footer";
 import OurPopularCourses from "@/components/home/OurPopularCourses";
 import SuggestCenters from "@/components/home/SuggestCenters";
+import Footer from "@/shared/Footer";
 
 const commonLayoutHomePage = () => {
   return (

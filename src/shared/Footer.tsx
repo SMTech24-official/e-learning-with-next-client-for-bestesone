@@ -9,6 +9,7 @@ import {
   socialLinks,
   usefulLinks,
 } from "@/constants/constants";
+import FooterMenu from "./FooterMenu";
 
 const Footer = () => {
   return (
@@ -59,49 +60,13 @@ const Footer = () => {
           </div>
           <div className="grid sm:grid-cols-3 xl:gap-[120px] gap-[40px] text-white">
             <div>
-              <h2 className="text-2xl mb-6 font-semibold">Useful Links</h2>
-              <ul className="flex flex-col gap-3">
-                {usefulLinks.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      href={item.link}
-                      className="relative after:content-[''] after:w-[0%] hover:after:w-[100%] after:ease-in-out after:transition-all after:duration-300 after:h-[1px] after:bg-white after:absolute after:bottom-[-3px] after:left-0"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <FooterMenu label="Useful Links" items={usefulLinks} />
             </div>
             <div>
-              <h2 className="text-2xl mb-6 font-semibold">Contact Us</h2>
-              <ul className="flex flex-col gap-2">
-                {contactUsLinks.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      href={item.link}
-                      className="relative after:content-[''] after:w-[0%] hover:after:w-[100%] after:ease-in-out after:transition-all after:duration-300 after:h-[1px] after:bg-white after:absolute after:bottom-[-3px] after:left-0"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <FooterMenu label="Contact Us" items={contactUsLinks} />
             </div>
             <div>
-              <h2 className="text-2xl mb-6 font-semibold">Get Contact</h2>
-              <ul className="flex flex-col gap-2">
-                {getContactLinks.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      href={item.link}
-                      className="relative after:content-[''] after:w-[0%] hover:after:w-[100%] after:ease-in-out after:transition-all after:duration-300 after:h-[1px] after:bg-white after:absolute after:bottom-[-3px] after:left-0"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <FooterMenu label="Get Contact" items={getContactLinks} />
             </div>
           </div>
         </div>
