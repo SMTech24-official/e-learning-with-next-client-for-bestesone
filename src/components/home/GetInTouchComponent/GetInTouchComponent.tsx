@@ -93,13 +93,13 @@ const GetInTouchComponent = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col items-center justify-center mt-8 px-2">
+      <div className="w-full flex flex-col items-center justify-center mt-8">
         <MyFormWrapper
           className={"flex flex-col gap-5 w-full md:max-w-lg "}
           onSubmit={handleSubmit}
           resolver={zodResolver(validationSchema)}
         >
-          <div className="flex items-center gap-3 w-full">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
             <div className="w-full">
               <MyFormInput
                 name={"first_name"}
@@ -152,7 +152,7 @@ const GetInTouchComponent = () => {
             placeHolder="Enter your message"
           />
 
-          <Checkbox onChange={onChangeCheckbox}>
+          <Checkbox onChange={onChangeCheckbox} className="mb-3">
             <p className="font-medium text-base">
               You agree to our friendly{" "}
               <span className="font-normal underline">privacy policy</span>.
