@@ -21,21 +21,21 @@ const CenterFilters = () => {
     <div className="flex items-center sm:justify-center gap-3 sm:gap-10 mb-3 sm:mb-8 overflow-hidden overflow-x-auto pb-2">
       <Button
         variant={currentType === "university" ? "underline" : "ghost"}
-        className="p-2 sm:px-5 sm:py-[10px]"
+        className="p-2 sm:px-5 sm:py-[10px] font-semibold "
         onClick={() => setQueryValue("university")}
       >
         <p className="text-lg font-semibold">University</p>
       </Button>
       <Button
         variant={currentType === "centers" ? "underline" : "ghost"}
-        className="p-2 sm:px-5 sm:py-[10px]"
+        className="p-2 sm:px-5 sm:py-[10px] font-semibold"
         onClick={() => setQueryValue("centers")}
       >
         <p className="text-lg font-semibold">Centers</p>
       </Button>
       <Button
         variant={currentType === "collage" ? "underline" : "ghost"}
-        className="p-2 sm:px-5 sm:py-[10px]"
+        className="p-2 sm:px-5 sm:py-[10px] font-semibold"
         onClick={() => setQueryValue("collage")}
       >
         <p className="text-lg font-semibold">Collage</p>

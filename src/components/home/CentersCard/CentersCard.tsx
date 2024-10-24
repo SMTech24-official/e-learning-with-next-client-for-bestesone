@@ -4,7 +4,7 @@ import { MdOutlineLocationOn, MdPeople } from "react-icons/md";
 
 const CentersCard = () => {
   return (
-    <div className="rounded-[16px] bg-primary p-5">
+    <div className="rounded-[16px] bg-primary p-6">
       <div className="rounded-[16px] overflow-hidden relative mb-3">
         <Image
           src={cardImage}
