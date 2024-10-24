@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import cardImage from "@/assets/courseCard/CourseCard.png";
-import star from "@/assets/courseCard/star.png";
+import cardImage from "@/assets/cardImages/courseCard/CourseCard.png";
+import star from "@/assets/cardImages/courseCard/star.png";
 import { MdPeople } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 
