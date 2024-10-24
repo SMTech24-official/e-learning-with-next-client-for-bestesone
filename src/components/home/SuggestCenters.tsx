@@ -46,7 +46,7 @@ const CenterFilters = () => {
 
 // Wrap the filtering component inside a Suspense boundary
 const SuggestCenters = () => {
-  const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const count = [1, 2, 3, 4, 5, 6];
 
   return (
     <div className="container">
@@ -61,7 +61,7 @@ const SuggestCenters = () => {
         <CenterFilters />
       </Suspense>
 
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-[66px]">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3  gap-4 mb-[66px]">
         {count?.map((course, index) => (
           <CentersCard key={index} />
         ))}

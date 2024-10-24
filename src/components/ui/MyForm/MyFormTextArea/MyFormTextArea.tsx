@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import cn from "@/utils/cn";
-import { Form, Input } from "antd";
+import { Form } from "antd";
+import TextArea from "antd/es/input/TextArea";
 import { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-const MyFormInput = ({
-  type = "text",
+const MyFormTextArea = ({
   name,
   label,
   inputClassName,
   placeHolder,
   value
 }: {
-  type?: string;
   name: string;
   label: string;
   inputClassName?: string;
@@ -40,11 +39,11 @@ const MyFormInput = ({
               {label}
             </p>
             <Form.Item style={{ marginBottom: "0px" }}>
-              <Input
+              <TextArea
                 {...field}
-                type={type}
                 id={name}
                 size="large"
+                rows={4}
                 className={cn("w-full", inputClassName)}
                 placeholder={placeHolder}
               />
@@ -57,4 +56,4 @@ const MyFormInput = ({
   );
 };
 
-export default MyFormInput;
+export default MyFormTextArea;

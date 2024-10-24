@@ -50,6 +50,9 @@ const MyFormWrapper = ({
             hoverBorderColor: "#7F56D9",
             activeBorderColor: "#7F56D9",
           },
+          Checkbox: {
+            colorBorder: "#7F56D9",
+          }
           
         },
       }}
