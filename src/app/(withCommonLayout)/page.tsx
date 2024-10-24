@@ -1,4 +1,5 @@
 import Banner from "@/components/home/Banner";
+import GetInTouch from "@/components/home/GetInTouch";
 import OurPopularCourses from "@/components/home/OurPopularCourses";
 import SuggestCenters from "@/components/home/SuggestCenters";
 import Testimonial from "@/components/home/testimonial/Testimonial";
@@ -12,6 +13,7 @@ const commonLayoutHomePage = () => {
       <SuggestCenters />
       <Testimonial />
       <Footer />
+      <GetInTouch/>
     </>
   );
 };

@@ -21,21 +21,21 @@ const CenterFilters = () => {
     <div className="flex items-center sm:justify-center gap-3 sm:gap-10 mb-3 sm:mb-8 overflow-hidden overflow-x-auto pb-2">
       <Button
         variant={currentType === "university" ? "underline" : "ghost"}
-        className="p-2 sm:px-5 sm:py-[10px]"
+        className="p-2 sm:px-5 sm:py-[10px] font-semibold "
         onClick={() => setQueryValue("university")}
       >
         <p className="text-lg font-semibold">University</p>
       </Button>
       <Button
         variant={currentType === "centers" ? "underline" : "ghost"}
-        className="p-2 sm:px-5 sm:py-[10px]"
+        className="p-2 sm:px-5 sm:py-[10px] font-semibold"
         onClick={() => setQueryValue("centers")}
       >
         <p className="text-lg font-semibold">Centers</p>
       </Button>
       <Button
         variant={currentType === "collage" ? "underline" : "ghost"}
-        className="p-2 sm:px-5 sm:py-[10px]"
+        className="p-2 sm:px-5 sm:py-[10px] font-semibold"
         onClick={() => setQueryValue("collage")}
       >
         <p className="text-lg font-semibold">Collage</p>
@@ -46,7 +46,7 @@ const CenterFilters = () => {
 
 // Wrap the filtering component inside a Suspense boundary
 const SuggestCenters = () => {
-  const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const count = [1, 2, 3, 4, 5, 6];
 
   return (
     <div className="container">
@@ -61,7 +61,7 @@ const SuggestCenters = () => {
         <CenterFilters />
       </Suspense>
 
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-[66px]">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3  gap-4 mb-[66px]">
         {count?.map((course, index) => (
           <CentersCard key={index} />
         ))}

@@ -20,9 +20,14 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 text-black dark:hover:text-neutral-50",
         link: "text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50",
+<<<<<<< HEAD
         icon: "flex justify-center items-center p-2 bg-primary gap-3 hover:bg-primary/90", // Specific styles for icon buttons
         underline:
           "text-primary rounded-none border-b-2 border-primary text-primary hover:border-primary/90 dark:border-primary dark:text-primary dark:hover:border-primary/90",
+=======
+        icon: "inline-flex justify-center items-center w-10 p-2", // Specific styles for icon buttons
+        underline: "text-primary  rounded-none border-b-2 border-primary text-primary hover:border-primary/90 dark:border-primary dark:text-primary dark:hover:border-primary/90",
+>>>>>>> ddba06b87debefbac7028648addbc3281d43fa96
       },
       size: {
         default: "px-5 py-3",
