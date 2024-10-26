@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 const InvitationCode = () => {
   return (
     <div
-      className="p-8 rounded-[20px] "
+      className="p-4 sm:p-8 rounded-[20px] "
       style={{
         boxShadow:
           "0px 4px 16px 0px rgba(16, 24, 40, 0.08), 0px 4px 6px -5px rgba(16, 24, 40, 0.03)",
@@ -53,14 +53,14 @@ const InvitationCode = () => {
       <h5 className="text-[#384250] text-base font-semibold mb-4">
         Share and invite your friend get reword
       </h5>
-      <div className="flex items-center gap-6 text-[#9E77ED] mb-8">
+      <div className="flex items-center gap-6 text-[#9E77ED] mb-6 sm:mb-8">
         <FaFacebookF size={23} />
         <FaTwitter size={23} />
         <RiInstagramFill size={23} />
         <FaLinkedin size={23} />
       </div>
       <Button variant='outline' className="w-full">
-      Click here for invitation code
+    <p className="text-xs sm:text-base">  Click here for invitation code</p>
       </Button>
     </div>
   );
