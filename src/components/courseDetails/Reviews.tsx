@@ -135,7 +135,7 @@ const Reviews = () => {
         onSubmit={handleSubmit}
         resolver={zodResolver(validationSchema)}
       >
-        <div className="grid grid-cols-2 items-center gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="w-full">
             <MyFormInput
               name={"full_name"}
@@ -164,7 +164,7 @@ const Reviews = () => {
               placeHolder="Phone number"
             />
           </div>
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <MyFormTextArea
               name={"Message"}
               placeHolder="Review summary"

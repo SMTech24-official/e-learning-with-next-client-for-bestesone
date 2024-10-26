@@ -4,6 +4,9 @@ import React from "react";
 import WhatWillYouLearn from "@/components/courseDetails/WhatWillYouLearn";
 import Reviews from "@/components/courseDetails/Reviews";
 import Image from "next/image";
+import BuyNowCard from "@/components/courseDetails/BuyNowCard";
+import InvitationCode from "@/components/courseDetails/InvitationCode";
+import CourseTimeCard from "@/components/courseDetails/CourseTimeCard";
 
 interface CourseId {
   params: {
@@ -15,26 +18,42 @@ const CourseIdPage = async ({ params }: CourseId) => {
   const { courseId } = await params;
 
   return (
-    <div className="relative">
-        <Image src={bgImage} height={800} width={800} alt="image" className="absolute -top-80 -left-96 opacity-[50%] blur-[250px] z-[-1]"/>
-      <div className=" flex justify-center items-center gap-10 container z-[1]">
-        {/* Left side start */}
-        <div
-          className="w-9/12 h-[400px] "
-     
-        >
-          <CourseBanner />
-          <WhatWillYouLearn />
-          <Reviews />
+    <>
+      <div className="relative w-full">
+        <Image
+          src={bgImage}
+          height={800}
+          width={800}
+          alt="image"
+          className="absolute -top-80 -left-96 opacity-[50%] blur-[250px] z-[-1]"
+        />
+        <div className=" flex flex-col md:flex-row justify-center gap-3 sm:gap-10 container z-[1] mb-6">
+          {/* Left side start */}
+          <div className="lg:w-8/12 ">
+            <CourseBanner />
+          </div>
+          {/* Left side end */}
+          {/* Right side start */}
+          <div className="lg:w-4/12 flex flex-col gap-3 sm:gap-10">
+            {" "}
+            {/* Added height for consistency */}
+            <BuyNowCard />
+            <InvitationCode />
+            <CourseTimeCard />
+          </div>
+          {/* Right side end */}
         </div>
-        {/* Left side end */}
-        {/* Right side start */}
-        <div className="w-3/12 bg-green-500 h-[400px]"> {/* Added height for consistency */}
-          right
+
+
+        <div className="container">
+          <div className=" lg:w-8/12 ">
+            <WhatWillYouLearn />
+            <Reviews />
+          </div>
+          <div className="lg:w-4/12"></div>
         </div>
-        {/* Right side end */}
       </div>
-    </div>
+    </>
   );
 };
 
