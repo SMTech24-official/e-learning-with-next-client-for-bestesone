@@ -14,7 +14,7 @@ const MyFormInput = ({
 }: {
   type?: string;
   name: string;
-  label: string;
+  label?: string;
   inputClassName?: string;
   placeHolder?: string;
   value?: any;  
