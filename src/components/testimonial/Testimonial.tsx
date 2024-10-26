@@ -7,7 +7,6 @@ import Image from "next/image";
 import AngleNext from "@/assets/testimonial/next.svg";
 import AnglePrev from "@/assets/testimonial/prev.svg";
 import { Navigation } from "swiper/modules";
-import { SwiperOptions } from "swiper/types";
 
 const Testimonial = () => {
   return (

@@ -8,15 +8,7 @@ import BuyNowCard from "@/components/courseDetails/BuyNowCard";
 import InvitationCode from "@/components/courseDetails/InvitationCode";
 import CourseTimeCard from "@/components/courseDetails/CourseTimeCard";
 
-interface CourseId {
-  params: {
-    courseId: string;
-  };
-}
-
-const CourseIdPage = async ({ params }: CourseId) => {
-  const { courseId } = await params;
-
+const CourseIdPage = async () => {
   return (
     <>
       <div className="relative w-full">
@@ -43,7 +35,6 @@ const CourseIdPage = async ({ params }: CourseId) => {
           </div>
           {/* Right side end */}
         </div>
-
 
         <div className="container">
           <div className=" lg:w-8/12 ">

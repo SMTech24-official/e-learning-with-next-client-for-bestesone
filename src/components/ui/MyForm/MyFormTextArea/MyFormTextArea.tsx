@@ -10,20 +10,19 @@ const MyFormTextArea = ({
   label,
   inputClassName,
   placeHolder,
-  value
+  value,
 }: {
   name: string;
   label?: string;
   inputClassName?: string;
   placeHolder?: string;
-  value?: any;  
+  value?: any;
 }) => {
-  const {setValue, control } = useFormContext();
+  const { setValue, control } = useFormContext();
 
   useEffect(() => {
     setValue(name, value, { shouldValidate: false });
-}, [value]);
-
+  }, [value, name, setValue]);
 
   return (
     <div>

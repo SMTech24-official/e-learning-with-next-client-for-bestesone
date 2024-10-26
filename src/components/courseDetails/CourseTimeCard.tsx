@@ -1,5 +1,4 @@
 import React from "react";
-import { GoClock } from "react-icons/go";
 
 const CourseTimeCard = () => {
   return (
@@ -29,9 +28,7 @@ const CourseTimeCard = () => {
         <div className="flex justify-between items-center">
           <div className=" flex items-center gap-2">
             <div className="p-1 bg-[#384250] rounded-full"></div>
-            <p className="text-[#384250] text-sm font-normal">
-            Class time
-            </p>
+            <p className="text-[#384250] text-sm font-normal">Class time</p>
           </div>
           <div>
             <p className="text-[#384250] text-sm font-semibold">2PM - 4PM</p>
@@ -40,9 +37,7 @@ const CourseTimeCard = () => {
         <div className="flex justify-between items-center">
           <div className=" flex items-center gap-2">
             <div className="p-1 bg-[#384250] rounded-full"></div>
-            <p className="text-[#384250] text-sm font-normal">
-            Course Hour
-            </p>
+            <p className="text-[#384250] text-sm font-normal">Course Hour</p>
           </div>
           <div>
             <p className="text-[#384250] text-sm font-semibold">72 Hours</p>
@@ -51,9 +46,7 @@ const CourseTimeCard = () => {
         <div className="flex justify-between items-center">
           <div className=" flex items-center gap-2">
             <div className="p-1 bg-[#384250] rounded-full"></div>
-            <p className="text-[#384250] text-sm font-normal">
-            Teacher Name
-            </p>
+            <p className="text-[#384250] text-sm font-normal">Teacher Name</p>
           </div>
           <div>
             <p className="text-[#384250] text-sm font-semibold">Mrs Fatema</p>
@@ -62,15 +55,12 @@ const CourseTimeCard = () => {
         <div className="flex justify-between items-center">
           <div className=" flex items-center gap-2">
             <div className="p-1 bg-[#384250] rounded-full"></div>
-            <p className="text-[#384250] text-sm font-normal">
-            Course day
-            </p>
+            <p className="text-[#384250] text-sm font-normal">Course day</p>
           </div>
           <div>
             <p className="text-[#384250] text-sm font-semibold">Sun,Mon,Thur</p>
           </div>
         </div>
-     
       </div>
     </div>
   );
