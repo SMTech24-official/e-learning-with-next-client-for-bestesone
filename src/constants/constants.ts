@@ -3,6 +3,8 @@ import Instagram from "@/assets/footer/instagram.svg";
 import Twitter from "@/assets/footer/twitter.svg";
 import Linkedin from "@/assets/footer/linkedin.svg";
 import Youtube from "@/assets/footer/youtube.svg";
+import testimonialImage1 from "@/assets/testimonial/testimonial-image-1.jpg";
+import testimonialImage2 from "@/assets/testimonial/testimonial-image-2.jpg";
 import { MenuItem, SocialLink, Testimonial } from "@/interface/interface";
 
 // testimonial constants
@@ -15,8 +17,8 @@ export const testimonials: Testimonial[] = [
     company: "Google",
     rating: 5,
     review:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    imageUrl: "https://example.com/images/john.jpg",
+      "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley”",
+    imageUrl: testimonialImage1,
   },
   {
     id: 2,
@@ -26,7 +28,7 @@ export const testimonials: Testimonial[] = [
     rating: 4,
     review:
       "Great experience! The team was extremely professional and the results were outstanding. I highly recommend their services.",
-    imageUrl: "https://example.com/images/jane.jpg",
+    imageUrl: testimonialImage2,
   },
   {
     id: 3,
@@ -36,7 +38,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     review:
       "Amazing work! The quality and attention to detail were exceptional. Will definitely work with them again.",
-    imageUrl: "https://example.com/images/michael.jpg",
+    imageUrl: testimonialImage1,
   },
   {
     id: 4,
@@ -46,7 +48,7 @@ export const testimonials: Testimonial[] = [
     rating: 4,
     review:
       "The project went smoothly, and the team was very responsive. I am very happy with the final product.",
-    imageUrl: "https://example.com/images/sarah.jpg",
+    imageUrl: testimonialImage2,
   },
   {
     id: 5,
@@ -56,7 +58,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     review:
       "Top-notch work! They exceeded my expectations and delivered on time. Highly recommend!",
-    imageUrl: "https://example.com/images/david.jpg",
+    imageUrl: testimonialImage1,
   },
 ];
 

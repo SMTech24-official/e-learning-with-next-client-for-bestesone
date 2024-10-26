@@ -6,6 +6,8 @@ import type { Testimonial } from "@/interface/interface";
 import Image from "next/image";
 import AngleNext from "@/assets/testimonial/next.svg";
 import AnglePrev from "@/assets/testimonial/prev.svg";
+import { Navigation } from "swiper/modules";
+import { SwiperOptions } from "swiper/types";
 
 const Testimonial = () => {
   return (
@@ -15,22 +17,38 @@ const Testimonial = () => {
           What Our Students Says About us
         </h2>
         <div className="flex gap-3 justify-end mb-8">
-          <div className="p-[10px] flex justify-center items-center cursor-pointer bg-white rounded-full shadow-[0px_4px_16px_0px_rgba(16,24,40,0.08),_0px_4px_6px_-5px_rgba(16,24,40,0.03)] w-[44px] h-[44px]">
+          <div className="p-[10px] flex justify-center items-center cursor-pointer bg-white rounded-full shadow-[0px_4px_16px_0px_rgba(16,24,40,0.08),_0px_4px_6px_-5px_rgba(16,24,40,0.03)] w-[44px] h-[44px] testimonial-prev">
             <Image src={AnglePrev} width={6} height={12} alt="Arrow icon" />
           </div>
-          <div className="p-[10px] flex justify-center items-center cursor-pointer bg-white rounded-full shadow-[0px_4px_16px_0px_rgba(16,24,40,0.08),_0px_4px_6px_-5px_rgba(16,24,40,0.03)] w-[44px] h-[44px]">
+          <div className="p-[10px] flex justify-center items-center cursor-pointer bg-white rounded-full shadow-[0px_4px_16px_0px_rgba(16,24,40,0.08),_0px_4px_6px_-5px_rgba(16,24,40,0.03)] w-[44px] h-[44px] testimonial-next">
             <Image src={AngleNext} width={6} height={12} alt="Arrow icon" />
           </div>
         </div>
 
         <Swiper
           className="!overflow-visible"
-          spaceBetween={50}
-          slidesPerView={1.2}
+          spaceBetween={24}
+          slidesPerView="auto"
           grabCursor={true}
+          speed={900}
+          modules={[Navigation]}
+          navigation={{
+            nextEl: ".testimonial-next",
+            prevEl: ".testimonial-prev",
+          }}
+          breakpoints={{
+            0: { slidesPerView: 1.2 },
+            620: { slidesPerView: 1.8 },
+            1024: {
+              slidesPerView: "auto",
+            },
+          }}
         >
           {testimonials?.map((testimonial: Testimonial) => (
-            <SwiperSlide key={testimonial.id}>
+            <SwiperSlide
+              key={testimonial.id}
+              className="lg:max-w-[732px] max-w-full"
+            >
               <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>
           ))}

@@ -15,6 +15,7 @@ const config: Config = {
         "primary-light": "#F7F3FF",
         "gray-neutral-900": "#111927",
         "gray-neutral-500": "#667085",
+        "gray-neutral-700": "#384250",
         "gray-black-900": "#231F40",
         background: "var(--background)",
         foreground: "var(--foreground)",

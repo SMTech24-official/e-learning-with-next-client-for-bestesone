@@ -9,7 +9,7 @@ export interface Testimonial {
   company: string;
   rating: number;
   review: string;
-  imageUrl: string;
+  imageUrl: StaticImageData;
 }
 
 export interface TestimonialCardProps {

@@ -4,7 +4,7 @@ import Banner from "@/components/home/Banner";
 import GetInTouch from "@/components/home/GetInTouch";
 import OurPopularCourses from "@/components/home/OurPopularCourses";
 import SuggestCenters from "@/components/home/SuggestCenters";
-import Testimonial from "@/components/home/testimonial/Testimonial";
+import Testimonial from "@/components/testimonial/Testimonial";
 
 const commonLayoutHomePage = () => {
   return (
