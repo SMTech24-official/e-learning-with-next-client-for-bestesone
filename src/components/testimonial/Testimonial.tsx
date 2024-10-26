@@ -15,6 +15,8 @@ const Testimonial = () => {
         <h2 className="mb-10 text-center text-3xl sm:text-5xl text-gray-black-900 font-semibold">
           What Our Students Says About us
         </h2>
+
+        {/* show navigation button for desktop */}
         <div className="gap-3 justify-end mb-8 md:flex hidden">
           <div className="p-[10px] flex justify-center items-center cursor-pointer bg-white rounded-full shadow-[0px_4px_16px_0px_rgba(16,24,40,0.08),_0px_4px_6px_-5px_rgba(16,24,40,0.03)] w-[44px] h-[44px] testimonial-prev">
             <Image src={AnglePrev} width={6} height={12} alt="Arrow icon" />
@@ -52,6 +54,8 @@ const Testimonial = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* show navigation button for mobile */}
         <div className="gap-3 md:justify-end justify-center mb-8 md:hidden flex mt-[40px]">
           <div className="p-[10px] flex justify-center items-center cursor-pointer bg-white rounded-full shadow-[0px_4px_16px_0px_rgba(16,24,40,0.08),_0px_4px_6px_-5px_rgba(16,24,40,0.03)] w-[44px] h-[44px] testimonial-prev">
             <Image src={AnglePrev} width={6} height={12} alt="Arrow icon" />
