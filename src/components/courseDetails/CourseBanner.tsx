@@ -6,8 +6,8 @@ import videoImg from "@/assets/courseDetails/videoImg.png";
 const CourseBanner = () => {
   return (
     <>
-      <div className="py-16">
-        <h1 className="font-semibold text-[60px] mb-4 text-[#344054]">
+      <div className=" py-7 sm:py-16">
+        <h1 className="font-semibold text-4xl sm:text-[60px] mb-2 sm:mb-4 text-[#344054] leading-[100%]">
           Advance Business Management System{" "}
         </h1>
         <p className="text-sm font-normal mb-4 text-[#667085]">
@@ -41,8 +41,8 @@ const CourseBanner = () => {
     
       </div>
       <div>
-        <h2 className="text-4xl font-bold mb-6 text-[#1D2939]">About the course</h2>
-        <p className="text-lg font-normal mb-8 text-[#667085]">Lorem ipsum dolor sit amet, consectetur dolorili adipiscing elit. Felis donec massa aliquam id.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus viverra praesent felis consequat pellentesque turpis et quisque platea. Eu, elit ut nunc ac mauris bibendum nulla placerat. Sagittis sit eu sit massa sapien, risus diam. In lorem eu sed euismod laoreet urna, feugiat et. Euismod sem purus rutrum in. Tortor varius a bibendum nisl et tellus. Aliquet elit senectus iaculis netus gravida.</p>
+        <h2 className="text-4xl font-bold mb-2 sm:mb-6 text-[#1D2939]">About the course</h2>
+        <p className="text-lg font-normal mb-3 sm:mb-8 text-[#667085]">Lorem ipsum dolor sit amet, consectetur dolorili adipiscing elit. Felis donec massa aliquam id.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus viverra praesent felis consequat pellentesque turpis et quisque platea. Eu, elit ut nunc ac mauris bibendum nulla placerat. Sagittis sit eu sit massa sapien, risus diam. In lorem eu sed euismod laoreet urna, feugiat et. Euismod sem purus rutrum in. Tortor varius a bibendum nisl et tellus. Aliquet elit senectus iaculis netus gravida.</p>
       </div>
     </>
   );
