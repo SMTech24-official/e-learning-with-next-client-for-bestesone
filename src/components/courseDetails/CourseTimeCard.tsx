@@ -3,7 +3,7 @@ import React from "react";
 const CourseTimeCard = () => {
   return (
     <div
-      className="py-4 px-8 rounded-[20px]"
+      className="p-4 sm:py-4 sm:px-8 rounded-[20px]"
       style={{
         boxShadow:
           "0px 4px 16px 0px rgba(16, 24, 40, 0.08), 0px 4px 6px -5px rgba(16, 24, 40, 0.03)",
