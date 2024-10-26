@@ -1,3 +1,5 @@
+"use client";
+
 import Banner from "@/components/home/Banner";
 import GetInTouch from "@/components/home/GetInTouch";
 import OurPopularCourses from "@/components/home/OurPopularCourses";
@@ -12,8 +14,8 @@ const commonLayoutHomePage = () => {
       <OurPopularCourses />
       <SuggestCenters />
       <Testimonial />
+      <GetInTouch />
       <Footer />
-      <GetInTouch/>
     </>
   );
 };
