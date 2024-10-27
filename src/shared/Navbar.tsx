@@ -3,15 +3,16 @@ import { ConfigProvider, Select } from "antd";
 import Image from "next/image";
 import React from "react";
 import { IoMdSearch } from "react-icons/io";
+import bannerImage from "@/assets/home/banner.jpg";
+import { Button } from "@/components/ui/button";
+
 
 const Navbar = () => {
   const onChange = (value: string) => {
     console.log(`selected ${value}`);
   };
 
-  const onSearch = (value: string) => {
-    console.log("search:", value);
-  };
+ 
 
   return (
     <div className="border-b-2 border-[#F2F4F7] bg-white">
@@ -35,7 +36,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div>
+        <div className="flex items-center gap-5">
           <div className="border border-[#98A2B3] rounded-full flex items-center">
             <div className="border-r border-[#98A2B3]">
               <ConfigProvider
@@ -85,6 +86,18 @@ const Navbar = () => {
               </button>
             </div>
           </div>
+          <div className="rounded-full h-11 w-11 overflow-hidden">
+            <Image
+              src={bannerImage}
+              height={50}
+              width={50}
+              alt="Banner Image"
+              className="object-contain"
+            />
+          </div>
+          <Button className="py-[10px]">
+            Login
+          </Button>
         </div>
       </div>
     </div>
