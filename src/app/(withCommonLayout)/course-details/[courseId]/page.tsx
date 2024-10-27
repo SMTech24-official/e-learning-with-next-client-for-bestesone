@@ -26,7 +26,7 @@ const CourseIdPage = async () => {
           </div>
           {/* Left side end */}
           {/* Right side start */}
-          <div className="lg:w-4/12 flex flex-col gap-3 sm:gap-10">
+          <div className="lg:w-4/12 flex flex-col gap-3 sm:gap-10 sm:mt-20">
             {" "}
             {/* Added height for consistency */}
             <BuyNowCard />
