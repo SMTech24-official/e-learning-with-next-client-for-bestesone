@@ -34,17 +34,19 @@ const MyFormInput = ({
           required: true,
         }}
         render={({ field, fieldState: { error } }) => (
-          <div className="flex flex-col justify-center gap-2 w-full">
-            <p className="ps-1 text-[#101828] text-base font-normal leading-6">
-              {label}
-            </p>
+          <div className="flex flex-col justify-center w-full">
+            {label && (
+              <p className="ps-1 mb-2 text-[#101828] text-base font-normal leading-6">
+                {label}
+              </p>
+            )}
             <Form.Item style={{ marginBottom: "0px" }}>
               <Input
                 {...field}
                 type={type}
                 id={name}
                 size="large"
-                className={cn("w-full", inputClassName)}
+                className={cn("w-full ", inputClassName)}
                 placeholder={placeHolder}
               />
             </Form.Item>

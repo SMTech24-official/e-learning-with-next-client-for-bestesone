@@ -233,7 +233,7 @@ const Navbar = () => {
       {/* Pc Mode end */}
       {/* Mobile Mode start */}
       <div className="mobile-navbar py-3 px-2 block lg:hidden">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-2">
           <div className=" w-28 overflow-hidden">
             <Image
               className="w-36"
@@ -277,8 +277,7 @@ const Navbar = () => {
               </div>
               {/* drawer header end */}
               {/* drawer body start */}
-              <div className="flex flex-col justify-between h-[calc(100vh-100px)]">
-                <div>
+              <div>
                   <div className="flex items-center gap-4 m-3">
                     <div className="rounded-full h-12 w-12 overflow-hidden">
                       <Image
@@ -311,25 +310,25 @@ const Navbar = () => {
                   <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
                     Map view
                   </p>
-                </div>
-                <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                  <Button className="m-3 py-2">
                     Logout
-                  </p>
-              </div>
+                  </Button>
+                </div>
               {/* drawer body end */}
             </>
           </Drawer>
         </div>
         <div>
-          <MyFormWrapper onSubmit={handleSearch} className="relative">
-            <MyFormInput name="search" inputClassName="pe-9" />
-
+          <MyFormWrapper onSubmit={handleSearch}>
+           <div className="relative">
+           <MyFormInput name="search" inputClassName="" />
             <button
               type="submit"
-              className="absolute bottom-2 right-2 text-white"
+              className="absolute bottom-[1px] right-[1px] rounded-md text-white bg-primary p-[9px]"
             >
-              <BiSearchAlt2 className="text-[#00000099]" size={20} />
+              <BiSearchAlt2 className="text-white   " size={20} />
             </button>
+           </div>
           </MyFormWrapper>
         </div>
       </div>
