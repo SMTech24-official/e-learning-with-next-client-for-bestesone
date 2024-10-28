@@ -234,10 +234,6 @@ const Navbar = () => {
       {/* Mobile Mode start */}
       <div className="mobile-navbar py-3 px-2 block lg:hidden">
         <div className="flex items-center justify-between">
-          <div className="" onClick={() => setMenuOpen(true)}>
-            <HiOutlineMenuAlt1 size={20} />
-          </div>
-
           <div className=" w-28 overflow-hidden">
             <Image
               className="w-36"
@@ -246,6 +242,9 @@ const Navbar = () => {
               width={500}
               alt="Logo"
             />
+          </div>
+          <div className="" onClick={() => setMenuOpen(true)}>
+            <HiOutlineMenuAlt1 size={25} />
           </div>
 
           <Drawer
@@ -258,16 +257,8 @@ const Navbar = () => {
             closeIcon={
               <FaArrowLeftLong style={{ fontSize: "24px", color: "black" }} />
             }
-            // extra={
-            //   <Space>
-            //     <Button onClick={onClose}>Cancel</Button>
-            //     <Button type="primary" onClick={onClose}>
-            //       OK
-            //     </Button>
-            //   </Space>
-            // }
           >
-            <div>
+            <>
               {/* drawer header start */}
               <div className="flex items-center justify-between border-b-[1px] px-2 py-3">
                 <div className=" w-28 overflow-hidden">
@@ -286,36 +277,47 @@ const Navbar = () => {
               </div>
               {/* drawer header end */}
               {/* drawer body start */}
-              {/* account start */}
-              <div className="my-2">
-                <div
-                  onClick={onClose}
-                  className="mx-auto rounded-full border border-black p-1 w-min h-min"
-                >
-                  <BsPerson className="font-semibold text-black " size={18} />
+              <div className="flex flex-col justify-between h-[calc(100vh-100px)]">
+                <div>
+                  <div className="flex items-center gap-4 m-3">
+                    <div className="rounded-full h-12 w-12 overflow-hidden">
+                      <Image
+                        src={bannerImage}
+                        height={70}
+                        width={70}
+                        alt="Banner Image"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-base font-medium mb-2">Abdul Ahad</p>
+                    </div>
+                  </div>
+
+                  <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                    Home
+                  </p>
+
+                  <div className="  w-full px-3 py-3 text-base font-semibold">
+                    <MultiLayerMenu
+                      menuData={mockCategories}
+                      title="Type of education"
+                      onClose={onClose}
+                    />
+                  </div>
+                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                    Materials
+                  </p>
+                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                    Map view
+                  </p>
                 </div>
-                <p className="text-center text-black -mt- text-xs">Profile</p>
+                <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                    Logout
+                  </p>
               </div>
-
-              <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
-                Home
-              </p>
-
-              <div className="  w-full px-3 py-3 text-base font-semibold">
-                <MultiLayerMenu
-                  menuData={mockCategories}
-                  title="Type of education"
-                  onClose={onClose}
-                />
-              </div>
-              <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                Materials
-              </p>
-              <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                Map view
-              </p>
               {/* drawer body end */}
-            </div>
+            </>
           </Drawer>
         </div>
         <div>
