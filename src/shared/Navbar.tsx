@@ -9,7 +9,6 @@ import { Category } from "@/types/type";
 import { ConfigProvider, Drawer, Select } from "antd";
 import Image from "next/image";
 import { useState } from "react";
-import { BsPerson } from "react-icons/bs";
 import { FaAngleDown } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
@@ -278,57 +277,55 @@ const Navbar = () => {
               {/* drawer header end */}
               {/* drawer body start */}
               <div>
-                  <div className="flex items-center gap-4 m-3">
-                    <div className="rounded-full h-12 w-12 overflow-hidden">
-                      <Image
-                        src={bannerImage}
-                        height={70}
-                        width={70}
-                        alt="Banner Image"
-                        className="object-contain"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-base font-medium mb-2">Abdul Ahad</p>
-                    </div>
-                  </div>
-
-                  <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
-                    Home
-                  </p>
-
-                  <div className="  w-full px-3 py-3 text-base font-semibold">
-                    <MultiLayerMenu
-                      menuData={mockCategories}
-                      title="Type of education"
-                      onClose={onClose}
+                <div className="flex items-center gap-4 m-3">
+                  <div className="rounded-full h-12 w-12 overflow-hidden">
+                    <Image
+                      src={bannerImage}
+                      height={70}
+                      width={70}
+                      alt="Banner Image"
+                      className="object-contain"
                     />
                   </div>
-                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                    Materials
-                  </p>
-                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                    Map view
-                  </p>
-                  <Button className="m-3 py-2">
-                    Logout
-                  </Button>
+                  <div>
+                    <p className="text-base font-medium mb-2">Abdul Ahad</p>
+                  </div>
                 </div>
+
+                <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                  Home
+                </p>
+
+                <div className="  w-full px-3 py-3 text-base font-semibold">
+                  <MultiLayerMenu
+                    menuData={mockCategories}
+                    title="Type of education"
+                    onClose={onClose}
+                  />
+                </div>
+                <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                  Materials
+                </p>
+                <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                  Map view
+                </p>
+                <Button className="m-3 py-2">Logout</Button>
+              </div>
               {/* drawer body end */}
             </>
           </Drawer>
         </div>
         <div>
           <MyFormWrapper onSubmit={handleSearch}>
-           <div className="relative">
-           <MyFormInput name="search" inputClassName="" />
-            <button
-              type="submit"
-              className="absolute bottom-[1px] right-[1px] rounded-md text-white bg-primary p-[9px]"
-            >
-              <BiSearchAlt2 className="text-white   " size={20} />
-            </button>
-           </div>
+            <div className="relative">
+              <MyFormInput name="search" inputClassName="" />
+              <button
+                type="submit"
+                className="absolute bottom-[1px] right-[1px] rounded-md text-white bg-primary p-[9px]"
+              >
+                <BiSearchAlt2 className="text-white   " size={20} />
+              </button>
+            </div>
           </MyFormWrapper>
         </div>
       </div>
