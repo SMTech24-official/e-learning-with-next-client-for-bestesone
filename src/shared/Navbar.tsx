@@ -233,11 +233,7 @@ const Navbar = () => {
       {/* Pc Mode end */}
       {/* Mobile Mode start */}
       <div className="mobile-navbar py-3 px-2 block lg:hidden">
-        <div className="flex items-center justify-between">
-          <div className="" onClick={() => setMenuOpen(true)}>
-            <HiOutlineMenuAlt1 size={20} />
-          </div>
-
+        <div className="flex items-center justify-between mb-2">
           <div className=" w-28 overflow-hidden">
             <Image
               className="w-36"
@@ -246,6 +242,9 @@ const Navbar = () => {
               width={500}
               alt="Logo"
             />
+          </div>
+          <div className="" onClick={() => setMenuOpen(true)}>
+            <HiOutlineMenuAlt1 size={25} />
           </div>
 
           <Drawer
@@ -258,16 +257,8 @@ const Navbar = () => {
             closeIcon={
               <FaArrowLeftLong style={{ fontSize: "24px", color: "black" }} />
             }
-            // extra={
-            //   <Space>
-            //     <Button onClick={onClose}>Cancel</Button>
-            //     <Button type="primary" onClick={onClose}>
-            //       OK
-            //     </Button>
-            //   </Space>
-            // }
           >
-            <div>
+            <>
               {/* drawer header start */}
               <div className="flex items-center justify-between border-b-[1px] px-2 py-3">
                 <div className=" w-28 overflow-hidden">
@@ -286,48 +277,58 @@ const Navbar = () => {
               </div>
               {/* drawer header end */}
               {/* drawer body start */}
-              {/* account start */}
-              <div className="my-2">
-                <div
-                  onClick={onClose}
-                  className="mx-auto rounded-full border border-black p-1 w-min h-min"
-                >
-                  <BsPerson className="font-semibold text-black " size={18} />
+              <div>
+                  <div className="flex items-center gap-4 m-3">
+                    <div className="rounded-full h-12 w-12 overflow-hidden">
+                      <Image
+                        src={bannerImage}
+                        height={70}
+                        width={70}
+                        alt="Banner Image"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-base font-medium mb-2">Abdul Ahad</p>
+                    </div>
+                  </div>
+
+                  <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                    Home
+                  </p>
+
+                  <div className="  w-full px-3 py-3 text-base font-semibold">
+                    <MultiLayerMenu
+                      menuData={mockCategories}
+                      title="Type of education"
+                      onClose={onClose}
+                    />
+                  </div>
+                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                    Materials
+                  </p>
+                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                    Map view
+                  </p>
+                  <Button className="m-3 py-2">
+                    Logout
+                  </Button>
                 </div>
-                <p className="text-center text-black -mt- text-xs">Profile</p>
-              </div>
-
-              <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
-                Home
-              </p>
-
-              <div className="  w-full px-3 py-3 text-base font-semibold">
-                <MultiLayerMenu
-                  menuData={mockCategories}
-                  title="Type of education"
-                  onClose={onClose}
-                />
-              </div>
-              <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                Materials
-              </p>
-              <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                Map view
-              </p>
               {/* drawer body end */}
-            </div>
+            </>
           </Drawer>
         </div>
         <div>
-          <MyFormWrapper onSubmit={handleSearch} className="relative">
-            <MyFormInput name="search" inputClassName="pe-9" />
-
+          <MyFormWrapper onSubmit={handleSearch}>
+           <div className="relative">
+           <MyFormInput name="search" inputClassName="" />
             <button
               type="submit"
-              className="absolute bottom-2 right-2 text-white"
+              className="absolute bottom-[1px] right-[1px] rounded-md text-white bg-primary p-[9px]"
             >
-              <BiSearchAlt2 className="text-[#00000099]" size={20} />
+              <BiSearchAlt2 className="text-white   " size={20} />
             </button>
+           </div>
           </MyFormWrapper>
         </div>
       </div>

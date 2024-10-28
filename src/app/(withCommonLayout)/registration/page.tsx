@@ -3,7 +3,7 @@ import React from "react";
 
 const registrationPage = () => {
   return (
-    <div className="h-screen ">
+    <div>
       <RegistrationComponent />
     </div>
   );
