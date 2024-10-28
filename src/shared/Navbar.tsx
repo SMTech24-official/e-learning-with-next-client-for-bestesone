@@ -107,12 +107,11 @@ const Navbar = () => {
   return (
     <div className="border-b-2 border-[#F2F4F7] bg-white">
       {/* Pc Mode start */}
-      <div className=" justify-between items-center gap-4 container hidden md:flex">
+      <div className=" justify-between items-center gap-4 container hidden lg:flex">
         {/* left side start */}
         <div className="flex items-center justify-center gap-6 py-5">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden w-36">
             <Image
-              className="w-36"
               src={"https://i.ibb.co.com/s5vxFJb/image-32.png"}
               height={500}
               width={500}
@@ -123,7 +122,10 @@ const Navbar = () => {
           <ul className="flex items-center space-x-4 text-[#344054] text-base font-normal whitespace-nowrap">
             <li className="text-sm font-medium">Home</li>
             <li className="text-sm font-medium">
-              <DropDownMultiMenu title="Type of education" />
+              <DropDownMultiMenu
+                title="Type of education"
+                menuData={mockCategories}
+              />
             </li>
             <li className="text-sm font-medium">Materials</li>
             <li className="text-sm font-medium">Map view</li>
@@ -230,7 +232,7 @@ const Navbar = () => {
       </div>
       {/* Pc Mode end */}
       {/* Mobile Mode start */}
-      <div className="mobile-navbar py-3 px-2 block md:hidden">
+      <div className="mobile-navbar py-3 px-2 block lg:hidden">
         <div className="flex items-center justify-between">
           <div className="" onClick={() => setMenuOpen(true)}>
             <HiOutlineMenuAlt1 size={20} />
@@ -295,17 +297,30 @@ const Navbar = () => {
                 <p className="text-center text-black -mt- text-xs">Profile</p>
               </div>
 
-              <div className="border-t-[1px]  w-full py-3 text-base font-semibold">
-                <MultiLayerMenu menuData={mockCategories} onClose={onClose} />
-              </div>
+              <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                Home
+              </p>
 
+              <div className="  w-full px-3 py-3 text-base font-semibold">
+                <MultiLayerMenu
+                  menuData={mockCategories}
+                  title="Type of education"
+                  onClose={onClose}
+                />
+              </div>
+              <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                Materials
+              </p>
+              <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                Map view
+              </p>
               {/* drawer body end */}
             </div>
           </Drawer>
         </div>
         <div>
           <MyFormWrapper onSubmit={handleSearch} className="relative">
-            <MyFormInput name="search" />
+            <MyFormInput name="search" inputClassName="pe-9" />
 
             <button
               type="submit"

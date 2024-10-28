@@ -8,81 +8,15 @@ import {
 
 
 
-const mockCategories: Category[] = [
-    {
-      id: "1",
-      name: "Centers",
-      subCategories: [
-        {
-          id: "1-1",
-          name: "Technology Centers",
-          childCategories: [
-            { id: "1-1-1", name: "IT Training" },
-            { id: "1-1-2", name: "Computer Repairs" },
-          ],
-        },
-        {
-          id: "1-2",
-          name: "Fitness Centers",
-          childCategories: [
-            { id: "1-2-1", name: "Gym Memberships" },
-            { id: "1-2-2", name: "Personal Training" },
-          ],
-        },
-      ],
-    },
-    {
-      id: "2",
-      name: "University",
-      subCategories: [
-        {
-          id: "2-1",
-          name: "Undergraduate",
-          childCategories: [
-            { id: "2-1-1", name: "Bachelor of Science" },
-            { id: "2-1-2", name: "Bachelor of Arts" },
-          ],
-        },
-        {
-          id: "2-2",
-          name: "Graduate Programs",
-          childCategories: [
-            { id: "2-2-1", name: "Master of Science" },
-            { id: "2-2-2", name: "Master of Arts" },
-          ],
-        },
-      ],
-    },
-    {
-      id: "3",
-      name: "Collage",
-      subCategories: [
-        {
-          id: "3-1",
-          name: "Art Collage",
-          childCategories: [
-            { id: "3-1-1", name: "Painting" },
-            { id: "3-1-2", name: "Sculpture" },
-          ],
-        },
-        {
-          id: "3-2",
-          name: "Community Collage",
-          childCategories: [
-            { id: "3-2-1", name: "Local Events" },
-            { id: "3-2-2", name: "Workshops" },
-          ],
-        },
-      ],
-    },
-  ];
+
   
 
 interface DropDownMultiMenuProps {
+  menuData: Category[];
   title: string;
 }
 
-const DropDownMultiMenu: React.FC<DropDownMultiMenuProps> = ({ title }) => {
+const DropDownMultiMenu: React.FC<DropDownMultiMenuProps> = ({ title, menuData }) => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
@@ -91,8 +25,8 @@ const DropDownMultiMenu: React.FC<DropDownMultiMenuProps> = ({ title }) => {
   );
 
   useEffect(() => {
-    setCategories(mockCategories);
-  }, []);
+    setCategories(menuData);
+  }, [menuData]);
 
   const handleCategoryToggle = (index: number) => {
     setActiveCategory(index === activeCategory ? index : index);
@@ -114,7 +48,7 @@ const DropDownMultiMenu: React.FC<DropDownMultiMenuProps> = ({ title }) => {
     <div className="relative" onMouseLeave={closeMenus}>
       <div
         onMouseEnter={() => setDropdownVisible(true)}
-        className="flex items-center justify-between gap-4 cursor-pointer py-3"
+        className="flex items-center justify-between gap-1 cursor-pointer py-3"
       >
         <p>{title}</p>
 
@@ -135,7 +69,7 @@ const DropDownMultiMenu: React.FC<DropDownMultiMenuProps> = ({ title }) => {
           onMouseLeave={closeMenus}
         >
           <ul>
-            {categories.map((category, categoryIndex) => (
+            {categories?.map((category, categoryIndex) => (
               <li
                 key={category.id}
                 className="relative px-5 py-3 border-b border-[#E2E2E2]"
