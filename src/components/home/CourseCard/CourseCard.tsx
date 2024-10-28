@@ -4,8 +4,9 @@ import cardImage from "@/assets/cardImages/courseCard/CourseCard.png";
 import star from "@/assets/cardImages/courseCard/star.png";
 import { MdPeople } from "react-icons/md";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-const CourseCard = () => {
+const CourseCard = ({ id }: { id: string | number }) => {
   return (
     <div className="rounded-[16px] bg-primary-light py-5 px-4">
       <div className="rounded-[16px] overflow-hidden relative mb-3">
@@ -47,7 +48,11 @@ const CourseCard = () => {
       <div className="flex items-center justify-between">
         <div className="text-2xl font-semibold">$850</div>
 
-        <Button className="px-3 py-2 sm:px-5 sm:py-[10px]" >View Details</Button>
+        <Link href={`/course-details/${id}`}>
+          <Button className="px-3 py-2 sm:px-5 sm:py-[10px]">
+            View Details
+          </Button>
+        </Link>
       </div>
     </div>
   );
