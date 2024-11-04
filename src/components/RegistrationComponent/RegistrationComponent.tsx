@@ -91,7 +91,7 @@ const RegistrationComponent = () => {
           resolver={zodResolver(validationSchema)}
         >
           <MyFormInput
-            name={"full_name"}
+            name={"fullName"}
             label={"Full name"}
             type={"text"}
             placeHolder="Enter your name"

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import cn from "@/utils/cn";
+
+import { cn } from "@/lib/utils";
 import { Form, Input } from "antd";
 import { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";

@@ -1,15 +1,10 @@
 "use client";
 import MyDrawer from "@/components/ui/MyDrawer/MyDrawer";
 import ProtectedRoute from "@/components/ui/ProtectedRoute/ProtectedRoute";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Import usePathname to track route
+import React, { useEffect, useState } from "react";
 import { LuWallet } from "react-icons/lu";
 import { MdPersonOutline } from "react-icons/md";
 import { PiNewspaperBold, PiSpeakerHighBold } from "react-icons/pi";

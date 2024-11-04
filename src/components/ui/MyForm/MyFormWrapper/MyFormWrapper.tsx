@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormProvider, useForm } from "react-hook-form";
-import cn from "../../../../utils/cn";
+
 import { ConfigProvider } from "antd";
+import { cn } from "@/lib/utils";
 
 const MyFormWrapper = ({
   onSubmit,

@@ -1,9 +1,10 @@
 import { Form, Select } from "antd";
 import { Controller } from "react-hook-form";
 // import { ControllerProps } from "react-hook-form";
-import cn from "@/utils/cn";
+
 import { SelectProps } from "antd";
 import "./MyFormSelect.css";
+import { cn } from "@/lib/utils";
 
 interface MyFormSelectProps {
   label: string;

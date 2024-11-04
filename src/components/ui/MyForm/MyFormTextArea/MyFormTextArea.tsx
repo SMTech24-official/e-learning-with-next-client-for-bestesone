@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import cn from "@/utils/cn";
+
+import { cn } from "@/lib/utils";
 import { Form } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { useEffect } from "react";
