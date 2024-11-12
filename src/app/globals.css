@@ -24,3 +24,23 @@ body {
     --radius: 0.5rem;
   }
 }
+
+
+.slim-scroll::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+  height: 6px;
+}
+
+.slim-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+.slim-scroll::-webkit-scrollbar-thumb {
+  background-color: #555; /* Thumb color */
+  border-radius: 12px; /* Rounded corners */
+}
+
+/* Optional: Hide scrollbar when inactive */
+.slim-scroll::-webkit-scrollbar-thumb:hover {
+  background: #262626; /* Thumb color on hover */
+}
