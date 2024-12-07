@@ -1,0 +1,32 @@
+/* Style for the next button */
+.swiper-button-next {
+  color: #fff;
+  background: #9e77ed;
+  border-radius: 20%;
+  padding: 10px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 10px; 
+  top: 60px;
+  z-index: 100;
+}
+
+/* Style for the previous button */
+.swiper-button-prev {
+  color: #fff;
+  background: #9e77ed;
+  border-radius: 20%;
+  padding: 10px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 10px;
+  top: 60px;
+  z-index: 100;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  transform: scale(0.3);
+}
