@@ -14,6 +14,7 @@ const config: Config = {
         primary: "#7F56D9",
         "primary-light": "#F7F3FF",
         "primary-bold": "#9E77ED",
+        "gray-neutral": '#98A2B3',
         "gray-neutral-900": "#111927",
         "gray-neutral-500": "#667085",
         "gray-neutral-700": "#384250",

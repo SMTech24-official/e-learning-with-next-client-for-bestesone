@@ -1,84 +1,89 @@
-'use client'
-
-import { useState } from 'react'
-import Link from 'next/link'
-import { Eye, EyeOff } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import register from "@/assets/authImages/register-image.png";
+import { AuthInput } from "./AuthForm/AuthInput";
+import { AuthPasswordField } from "./AuthForm/AuthPasswordField";
+import google from "@/assets/authImages/google.png";
+import facebook from "@/assets/authImages/Facebook.png";
+import apple from "@/assets/authImages/apple.png";
+import { RoundedButton } from "./AuthForm/AuthSocialRoundedBtn";
 
 export function SignUpForm() {
-  const [showPassword, setShowPassword] = useState(true)
-
-  const togglePasswordVisibility = () => setShowPassword(!showPassword)
-
+ 
   return (
     <div className="w-full max-w-md space-y-8">
-      <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold">Create an account</h1>
-        <p className="text-gray-500">Enter your information to get started</p>
+      <div className="space-y-2 text-center flex flex-col justify-center items-center">
+        <Image src={register} alt="register Image" />
+        <h1 className="text-3xl font-bold">Register</h1>
       </div>
       <form className="space-y-4">
-        <div className="space-y-2">
-          <label htmlFor="name">Name</label>
-          <input id="name" placeholder="John Doe" required />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" placeholder="john@example.com" required />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="password">Password</label>
-          <div className="relative">
-            <input 
-              id="password" 
-              type={showPassword ? "text" : "password"} 
-              placeholder="••••••••" 
-              required 
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2"
-            >
-              {showPassword ? <EyeOff className="h-4 w-4 text-gray-500" /> : <Eye className="h-4 w-4 text-gray-500" />}
-            </button>
-          </div>
-        </div>
+        <AuthInput
+          label="Name"
+          type="text"
+          id="text"
+          placeholder="John Doe"
+          required
+        />
+        <AuthInput
+          label="Email"
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+          required
+        />
+        <AuthPasswordField />
         <div className="flex items-center space-x-2">
-          <input type='checkbox' id="terms" />
+          <input className="" type="checkbox" id="terms" />
           <label htmlFor="terms" className="text-sm">
-            I agree to the <Link href="/terms" className="underline">Terms of Service</Link> and <Link href="/privacy" className="underline">Privacy Policy</Link>
+            Agree with{" "}
+            <Link href="/terms" className="underline">
+              Terms & condition
+            </Link>{" "}
+            and{" "}
+            <Link href="/privacy" className="underline">
+              Privacy Policy
+            </Link>
           </label>
         </div>
-        <Button type="submit" className="w-full">Sign Up</Button>
+        <Button type="submit" className="w-full">
+          Sign Up
+        </Button>
       </form>
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">
+          <span className="bg-white px-2 text-muted-foreground rounded-lg">
             Or sign up with
           </span>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-        <Button variant="outline" className="w-full">
-          Google
-        </Button>
-        <Button variant="outline" className="w-full">
-          Facebook
-        </Button>
-        <Button variant="outline" className="w-full">
-          Apple
-        </Button>
+      <div className="flex flex-row items-center justify-center ">
+        <RoundedButton
+          imageSrc={google}
+          altText="Google Logo"
+          className="mx-3"
+        />
+        <RoundedButton
+          imageSrc={facebook}
+          altText="facebook Logo"
+          className="mx-3"
+        />
+        <RoundedButton
+          imageSrc={apple}
+          altText="Apple Logo"
+          className="mx-3"
+        />
       </div>
       <p className="text-center text-sm text-gray-500">
-        Already have an account?{' '}
-        <Link href="/signin" className="font-semibold text-primary underline">
+        Already have an account?{" "}
+        <Link href="/login" className="font-semibold text-primary underline">
           Sign in
         </Link>
       </p>
     </div>
-  )
+  );
 }
-
