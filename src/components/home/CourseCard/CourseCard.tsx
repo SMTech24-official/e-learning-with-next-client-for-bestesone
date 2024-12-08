@@ -1,61 +1,64 @@
-import Image from "next/image";
-import React from "react";
-import cardImage from "@/assets/cardImages/courseCard/CourseCard.png";
-import star from "@/assets/cardImages/courseCard/star.png";
-import { MdPeople } from "react-icons/md";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Image from "next/image"
+import { Star, Calendar, Users } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { CourseCardProps } from "@/interface/interface"
 
-const CourseCard = ({ id }: { id: string | number }) => {
+
+export default function CourseCard({
+  coverImage,
+  title,
+  description,
+  authorImage,
+  authorName,
+  rating,
+  date,
+  seats,
+  price
+}: CourseCardProps) {
   return (
-    <div className="rounded-[16px] bg-primary-light py-5 px-4">
-      <div className="rounded-[16px] overflow-hidden relative mb-3">
-        <Image
-          src={cardImage}
-          height={600}
-          width={600}
-          alt="Banner Image"
-          className="object-contain "
-        />
-        <div className="absolute bottom-4 left-4 px-4 py-2 flex items-center justify-center gap-1 rounded-[16px] bg-[rgba(255,255,255,0.50)] backdrop-blur-[2px]">
-          <Image
-            src={star}
-            width={15}
-            height={15}
-            className="object-contain"
-            alt="Image of star"
+    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white">
+      <Image 
+        src={coverImage} 
+        alt={title} 
+        width={384} 
+        height={200} 
+        className="w-full h-48 object-cover"
+      />
+      <div className="px-6 py-4">
+        <h2 className="font-bold text-xl mb-2">{title}</h2>
+        <p className="text-gray-700 text-base line-clamp-2">{description}</p>
+      </div>
+      <div className="px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center">
+          <Image 
+            src={authorImage} 
+            alt={authorName} 
+            width={40} 
+            height={40} 
+            className="rounded-full border-2 border-gray-500 mr-4"
           />
-          <p className="text-white text-sm">4.5 </p>
+          <p className="text-gray-900 font-semibold">{authorName}</p>
+        </div>
+        <div className="flex items-center">
+          <Star className="w-5 h-5 text-yellow-400 fill-current mr-1" />
+          <span className="text-gray-600">{rating.toFixed(1)}</span>
         </div>
       </div>
-      <div className="flex items-center justify-between mb-6 ">
-        <p className="text-xs font-normal">Batch 4</p>
-        <div className="flex items-center gap-1">
-          <MdPeople />
-          <p className="text-xs font-normal">Left seat 15</p>
+      <div className="px-6 py-4 flex justify-between items-center text-sm text-gray-600">
+        <div className="flex items-center">
+          <Calendar className="w-4 h-4 mr-2" />
+          <span>{date}</span>
         </div>
-        <p className="text-xs font-normal">Days left 10</p>
+        <div className="flex items-center">
+          <Users className="w-4 h-4 mr-2" />
+          <span>Seat - {seats}</span>
+        </div>
       </div>
-      <div className="flex items-center gap-2 mb-2">
-        <div className="p-2 bg-[#32D583] rounded-full"></div>
-        <p className="text-[#32D583] font-medium leading-6">Available</p>
-      </div>
-      <h5 className="text-2xl font-semibold leading-6 mb-4">Business</h5>
-      <p className="text-sm font-normal leading-[22px] mb-4">
-        The Business Management System (ABMS) is an all-in-one software that
-        streamlines operations and enhances decision-making.
-      </p>
-      <div className="flex items-center justify-between">
-        <div className="text-2xl font-semibold">$850</div>
-
-        <Link href={`/course-details/${id}`}>
-          <Button className="px-3 py-2 sm:px-5 sm:py-[10px]">
-            View Details
-          </Button>
-        </Link>
+      <div className="px-6 py-4 flex justify-between items-center">
+        <span className="text-xl font-bold text-gray-900">${price.toFixed(2)}</span>
+        <Button variant="outline" className="hover:bg-primary hover:text-white">View Details</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CourseCard;

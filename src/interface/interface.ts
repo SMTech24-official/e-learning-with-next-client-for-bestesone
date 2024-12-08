@@ -1,5 +1,19 @@
 import { StaticImageData } from "next/image";
 
+// course card interface
+
+export interface CourseCardProps {
+  coverImage: string
+  title: string
+  description: string
+  authorImage: string
+  authorName: string
+  rating: number
+  date: string
+  seats: number
+  price: number
+}
+
 // Testimonial interface
 
 export interface Testimonial {
