@@ -1,6 +1,7 @@
 "use client";
 
 import Banner from "@/components/home/Banner";
+import { FloatingChatBtn } from "@/components/home/FloatingChatBtn";
 import OurCategories from "@/components/home/OurCategories";
 import OurPartnerInstituteList from "@/components/home/OurPartnerInstituteList";
 import OurPopularCourses from "@/components/home/OurPopularCourses";
@@ -14,6 +15,7 @@ const commonLayoutHomePage = () => {
       <OurCategories />
       <OurPopularCourses />
       <OurPartnerInstituteList />
+      <FloatingChatBtn />
     </>
   );
 };

@@ -141,7 +141,6 @@ const demoCourseCard = [
 
 // Wrap the component using Suspense
 const OurPopularCourses = () => {
-  console.log(demoCourseCard);
   return (
     <div className="container">
       <SectionStarter
