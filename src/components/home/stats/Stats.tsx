@@ -14,7 +14,7 @@ const Stats = () => {
   ];
 
   return (
-    <div className="bg-purple-600">
+    <div className="bg-primary">
       <div className="container">
         <Card className="text-white bg-transparent rounded-none border-0">
           <CardContent className="py-6">

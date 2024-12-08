@@ -81,18 +81,20 @@ const OurCategories = () => {
             540: {
               slidesPerView: 1,
               spaceBetween: 10,
+              centeredSlides: true,
             },
             768: {
-              slidesPerView: 2, 
+              slidesPerView: 2,
               spaceBetween: 10,
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 14, 
+              spaceBetween: 14,
+              centeredSlides: false,
             },
             1280: {
               slidesPerView: 4,
-              spaceBetween: 14, 
+              spaceBetween: 14,
             },
           }}
           spaceBetween={14}
