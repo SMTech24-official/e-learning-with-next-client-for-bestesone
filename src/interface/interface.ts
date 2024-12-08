@@ -14,6 +14,15 @@ export interface CourseCardProps {
   price: number
 }
 
+// partner card interface
+export interface PartnerCardProps {
+  imageUrl: string
+  name: string
+  title: string
+  rating: number
+  ratingCount: number
+}
+
 // Testimonial interface
 
 export interface Testimonial {
