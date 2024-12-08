@@ -26,6 +26,7 @@ export function AuthPasswordField({
         <input
           id={"password"}
           type={showPassword ? "text" : "password"}
+          placeholder="********"
           className={cn(
             "border border-gray-neutral p-2 rounded w-full",
             inputClassName
