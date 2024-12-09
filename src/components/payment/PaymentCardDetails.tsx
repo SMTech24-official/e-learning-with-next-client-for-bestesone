@@ -8,6 +8,7 @@ import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const validationSchema = z.object({
   card_number: z.any({
@@ -87,12 +88,14 @@ const PaymentCardForm = () => {
             </p>
           </div>
 
-          <Button
-            className=" w-full py-3 rounded-lg bg-primary text-white text-base font-normal leading-6"
-            type="submit"
-          >
-            Submit
-          </Button>
+          <Link href={"/payment/payment-success"}>
+            <Button
+              className=" w-full py-3 rounded-lg bg-primary text-white text-base font-normal leading-6"
+              type="submit"
+            >
+              Submit
+            </Button>
+          </Link>
         </MyFormWrapper>
       </CardContent>
     </Card>
