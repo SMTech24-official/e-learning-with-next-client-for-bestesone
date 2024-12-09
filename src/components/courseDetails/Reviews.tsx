@@ -3,7 +3,7 @@
 import bannerImage from "@/assets/home/banner.jpg";
 import { Rate } from "antd";
 import Image from "next/image";
-import SubmitReview from "./SubmitReview";
+
 
 const Reviews = () => {
   return (
@@ -59,11 +59,6 @@ const Reviews = () => {
           instructors and classes near me. Highly recommend!
         </h5>
       </div>
-      {/* comments */}
-      <h2 className="font-bold text-2xl sm:text-4xl mb-1 sm:mb-5">
-        Write a reviews about this course
-      </h2>
-      <SubmitReview />
     </div>
   );
 };

@@ -1,69 +1,62 @@
-import React from "react";
-import { Button } from "../ui/button";
-import { HiOutlineChartSquareBar } from "react-icons/hi";
-import { GoClock } from "react-icons/go";
-import { FiVideo } from "react-icons/fi";
-import { AiOutlineFlag } from "react-icons/ai";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Calendar, Clock, GraduationCap, Users, Briefcase } from "lucide-react";
 
 const BuyNowCard = () => {
   return (
-    <div
-      className="p-4 sm:py-9 sm:px-8 rounded-[20px]"
-      style={{
-        boxShadow:
-          "0px 4px 16px 0px rgba(16, 24, 40, 0.08), 0px 4px 6px -5px rgba(16, 24, 40, 0.03)",
-      }}
-    >
-      <h2 className="text-2xl sm:text-4xl font-semibold mb-3 whitespace-nowrap">
-        $ 850.00 USD
-      </h2>
-      <p className="text-sm font-normal text-[#384250] mb-4 sm:mb-8">
-        Provide most popular courses that your want to join and lets start the
-        course for the most simply way in here
-      </p>
-      <Button className=" w-full py-3 rounded-lg bg-primary text-white text-base font-normal leading-6 mb-5 sm:mb-14">
-        Buy Now
-      </Button>
-
-      <>
-        <div className="flex justify-between items-center mb-6 ">
-          <div className=" flex items-center gap-1">
-            <HiOutlineChartSquareBar size={20} className="text-[#667085]" />
-            <p className="text-[#384250] text-sm font-normal">Course Level</p>
+    <Card className="w-full p-4 sm:py-9 sm:px-3 rounded-[20px] shadow">
+      <CardContent className="pt-6">
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="text-4xl font-bold text-heading-text">$ 850.00 USD</p>
+            <p className="text-sm text-muted-foreground">
+              Provide most popular courses that your want to do and lets start
+              the course for the most simply way in here
+            </p>
           </div>
-          <div>
-            <p className="text-[#384250] text-sm font-semibold">Intermediate</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-center mb-6">
-          <div className=" flex items-center gap-1">
-            <GoClock size={20} className="text-[#667085]" />
-            <p className="text-[#384250] text-sm font-normal">Course Duration</p>
-          </div>
-          <div>
-            <p className="text-[#384250] text-sm font-semibold">6hr 48m</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-center mb-6">
-          <div className=" flex items-center gap-1">
-            <FiVideo size={20} className="text-[#667085]" />
-            <p className="text-[#384250] text-sm font-normal">Lessons</p>
-          </div>
-          <div>
-            <p className="text-[#384250] text-sm font-semibold">40</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-center mb-6">
-          <div className=" flex items-center gap-1">
-            <AiOutlineFlag size={20} className="text-[#667085]" />
-            <p className="text-[#384250] text-sm font-normal">Language</p>
-          </div>
-          <div>
-            <p className="text-[#384250] text-sm font-semibold">English</p>
+          <Button className="w-full">
+            Enroll Now
+          </Button>
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 text-sm">
+              <Clock className="h-5 w-5 text-muted-foreground" />
+              <span>Course Duration :</span>
+              <span className="ml-auto font-medium">06 Month</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <Users className="h-5 w-5 text-muted-foreground" />
+              <span>Available Seat :</span>
+              <span className="ml-auto font-medium">25</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <GraduationCap className="h-5 w-5 text-muted-foreground" />
+              <span>No. of Classes :</span>
+              <span className="ml-auto font-medium">42 Classes</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <Calendar className="h-5 w-5 text-muted-foreground" />
+              <span>Class Per Week :</span>
+              <span className="ml-auto font-medium">
+                3 Days (Fri, Sat, Thu)
+              </span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <Clock className="h-5 w-5 text-muted-foreground" />
+              <span>Class Duration :</span>
+              <span className="ml-auto font-medium">11am - 03 P</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <GraduationCap className="h-5 w-5 text-muted-foreground" />
+              <span>Certificate of Completion</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <Briefcase className="h-5 w-5 text-muted-foreground" />
+              <span>Jobs / Internship Facility</span>
+            </div>
           </div>
         </div>
-      </>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 

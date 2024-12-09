@@ -3,24 +3,25 @@ import { StaticImageData } from "next/image";
 // course card interface
 
 export interface CourseCardProps {
-  coverImage: string
-  title: string
-  description: string
-  authorImage: string
-  authorName: string
-  rating: number
-  date: string
-  seats: number
-  price: number
+  id: string | number;
+  coverImage: string;
+  title: string;
+  description: string;
+  authorImage: string;
+  authorName: string;
+  rating: number;
+  date: string;
+  seats: number;
+  price: number;
 }
 
 // partner card interface
 export interface PartnerCardProps {
-  imageUrl: string
-  name: string
-  title: string
-  rating: number
-  ratingCount: number
+  imageUrl: string;
+  name: string;
+  title: string;
+  rating: number;
+  ratingCount: number;
 }
 
 // Testimonial interface

@@ -1,17 +1,19 @@
 import CourseBanner from "@/components/courseDetails/CourseBanner";
-import bgImage from "@/assets/courseDetails/bannerBackground.png"; // Ensure this path is correct
+import bgImage from "@/assets/courseDetails/bannerBackground.png";
 import React from "react";
 import WhatWillYouLearn from "@/components/courseDetails/WhatWillYouLearn";
 import Reviews from "@/components/courseDetails/Reviews";
 import Image from "next/image";
 import BuyNowCard from "@/components/courseDetails/BuyNowCard";
-import InvitationCode from "@/components/courseDetails/InvitationCode";
-import CourseTimeCard from "@/components/courseDetails/CourseTimeCard";
+import TechnologyCard from "@/components/courseDetails/TechnologyCard";
+import InvitationCard from "@/components/courseDetails/InvitationCard";
+import CourseSlider from "@/components/courseDetails/CourseSlider";
+import { demoCourse } from "@/components/home/demoCourses";
 
 const CourseIdPage = async () => {
   return (
     <>
-      <div className="relative w-full">
+      <div className="relative w-full p-2">
         <Image
           src={bgImage}
           height={800}
@@ -19,19 +21,18 @@ const CourseIdPage = async () => {
           alt="image"
           className="absolute -top-80 -left-96 opacity-[50%] blur-[250px] z-[-1]"
         />
-        <div className=" flex flex-col md:flex-row justify-center gap-3 sm:gap-10 container z-[1] mb-6">
+        <div className="flex flex-col md:flex-row justify-center gap-3 sm:gap-10 container z-[1] mb-6">
           {/* Left side start */}
-          <div className="lg:w-8/12 ">
+          <div className=" lg:w-8/12 ">
             <CourseBanner />
           </div>
           {/* Left side end */}
           {/* Right side start */}
           <div className="lg:w-4/12 flex flex-col gap-3 sm:gap-10 sm:mt-20">
-            {" "}
             {/* Added height for consistency */}
             <BuyNowCard />
-            <InvitationCode />
-            <CourseTimeCard />
+            <TechnologyCard />
+            <InvitationCard />
           </div>
           {/* Right side end */}
         </div>
@@ -41,7 +42,9 @@ const CourseIdPage = async () => {
             <WhatWillYouLearn />
             <Reviews />
           </div>
-          <div className="lg:w-4/12"></div>
+          <div className="w-full">
+            <CourseSlider courses={demoCourse} />
+          </div>
         </div>
       </div>
     </>

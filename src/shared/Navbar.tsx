@@ -14,6 +14,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoMdClose, IoMdSearch } from "react-icons/io";
 import { BiSearchAlt2 } from "react-icons/bi";
+import Link from "next/link";
 
 const mockCategories: Category[] = [
   {
@@ -119,7 +120,9 @@ const Navbar = () => {
           </div>
 
           <ul className="flex items-center space-x-4 text-[#344054] text-base font-normal whitespace-nowrap">
-            <li className="text-sm font-medium">Home</li>
+            <Link href={"/"}>
+              <li className="text-sm font-medium">Home</li>
+            </Link>
             <li className="text-sm font-medium">
               <DropDownMultiMenu
                 title="Type of education"
@@ -234,13 +237,15 @@ const Navbar = () => {
       <div className="mobile-navbar py-3 px-2 block lg:hidden">
         <div className="flex items-center justify-between mb-2">
           <div className=" w-28 overflow-hidden">
-            <Image
-              className="w-36"
-              src={"https://i.ibb.co.com/s5vxFJb/image-32.png"}
-              height={500}
-              width={500}
-              alt="Logo"
-            />
+            <Link href={"/"}>
+              <Image
+                className="w-36"
+                src={"https://i.ibb.co.com/s5vxFJb/image-32.png"}
+                height={500}
+                width={500}
+                alt="Logo"
+              />
+            </Link>
           </div>
           <div className="" onClick={() => setMenuOpen(true)}>
             <HiOutlineMenuAlt1 size={25} />
@@ -291,10 +296,11 @@ const Navbar = () => {
                     <p className="text-base font-medium mb-2">Abdul Ahad</p>
                   </div>
                 </div>
-
-                <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
-                  Home
-                </p>
+                <Link href={"/"}>
+                  <p className="border-y-[1px]  w-full ps-3 py-3 text-base font-semibold">
+                    Home
+                  </p>
+                </Link>
 
                 <div className="  w-full px-3 py-3 text-base font-semibold">
                   <MultiLayerMenu
