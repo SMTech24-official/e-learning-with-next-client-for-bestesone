@@ -1,8 +1,11 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, GraduationCap, Users, Briefcase } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const BuyNowCard = () => {
+  const router = useRouter()
   return (
     <Card className="w-full p-4 sm:py-9 sm:px-3 rounded-[20px] shadow">
       <CardContent className="pt-6">
@@ -14,9 +17,7 @@ const BuyNowCard = () => {
               the course for the most simply way in here
             </p>
           </div>
-          <Button className="w-full">
-            Enroll Now
-          </Button>
+            <Button onClick={() => router.push("/payment")} className="w-full">Enroll Now</Button>
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-sm">
               <Clock className="h-5 w-5 text-muted-foreground" />

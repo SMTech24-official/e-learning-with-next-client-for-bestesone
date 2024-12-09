@@ -228,7 +228,9 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <Button className="py-[10px]">Login</Button>
+          <Link href={"/login"}>
+            <Button className="py-[10px]">Login</Button>
+          </Link>
         </div>
         {/* right side end */}
       </div>

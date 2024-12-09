@@ -27,21 +27,8 @@ export function SignInForm() {
           required
         />
         <AuthPasswordField />
-        <div className="flex items-center space-x-2">
-          <input className="" type="checkbox" id="terms" />
-          <label htmlFor="terms" className="text-sm">
-            Agree with{" "}
-            <Link href="/terms" className="underline">
-              Terms & condition
-            </Link>{" "}
-            and{" "}
-            <Link href="/privacy" className="underline">
-              Privacy Policy
-            </Link>
-          </label>
-        </div>
         <Button type="submit" className="w-full">
-          Sign Up
+          Log in
         </Button>
       </form>
       <div className="relative">
@@ -50,7 +37,7 @@ export function SignInForm() {
         </div>
         <div className="relative flex justify-center text-xs uppercase">
           <span className="bg-white px-2 text-muted-foreground rounded-lg">
-            Or sign up with
+            Or sign in with
           </span>
         </div>
       </div>
@@ -68,9 +55,9 @@ export function SignInForm() {
         <RoundedButton imageSrc={apple} altText="Apple Logo" className="mx-3" />
       </div>
       <p className="text-center text-sm text-gray-500">
-        Already have an account?{" "}
-        <Link href="/login" className="font-semibold text-primary underline">
-          Sign in
+        Don&apos;t have an account?{" "}
+        <Link href="/registration" className="font-semibold text-primary underline">
+          Register
         </Link>
       </p>
     </div>

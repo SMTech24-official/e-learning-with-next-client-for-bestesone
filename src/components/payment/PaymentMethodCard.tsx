@@ -1,3 +1,4 @@
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -9,8 +10,10 @@ import paypal from "@/assets/payments/paypal.png";
 import applePay from "@/assets/payments/apple-pay.png";
 import googlePay from "@/assets/payments/google-pay.png";
 import clicq from "@/assets/payments/clicq.png";
+import { useRouter } from "next/navigation";
 
 const PaymentMethodCard = () => {
+  const router = useRouter();
   return (
     <Card>
       <CardHeader>
@@ -61,7 +64,11 @@ const PaymentMethodCard = () => {
             <Image src={clicq} alt="Clio" className="h-8 w-auto" />
           </div>
         </RadioGroup>
-        <Button className="mt-6 w-full" size="lg">
+        <Button
+          onClick={() => router.push("/payment/card-details")}
+          className="mt-6 w-full"
+          size="lg"
+        >
           Next
         </Button>
       </CardContent>
