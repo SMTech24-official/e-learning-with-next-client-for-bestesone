@@ -1,7 +1,7 @@
 import PartnerCard from "./PartnerCard/PartnerCard";
 import SectionStarter from "./SectionStarter";
 
-const partners = [
+export const partners = [
   {
     imageUrl: "https://i.ibb.co.com/YQ78DrR/partner-image.png",
     name: "Creative IT Institute",

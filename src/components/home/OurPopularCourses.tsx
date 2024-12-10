@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "../ui/button";
+import { Button } from "../ui/my-ui/button";
 import CourseCard from "./CourseCard/CourseCard";
 import { demoCourse } from "./demoCourses";
 import SectionStarter from "./SectionStarter";

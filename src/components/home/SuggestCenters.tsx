@@ -1,7 +1,7 @@
 "use client";
 import React, { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Button } from "../ui/button";
+import { Button } from "../ui/my-ui/button";
 import CentersCard from "./CentersCard/CentersCard";
 
 // Extract the filtering logic into a separate component

@@ -1,7 +1,7 @@
 import footerLogo from "@/assets/footer/footer-logo.png";
 import Link from "next/link";
 import arrowIcon from "@/assets/footer/arrow.svg";
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/my-ui/button";
 import Image from "next/image";
 import {
   contactUsLinks,

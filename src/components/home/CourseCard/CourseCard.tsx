@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Star, Calendar, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/my-ui/button";
 import { CourseCardProps } from "@/interface/interface";
 import Link from "next/link";
 

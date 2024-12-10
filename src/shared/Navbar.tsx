@@ -1,11 +1,8 @@
 "use client";
 import bannerImage from "@/assets/home/banner.jpg";
-import { Button } from "@/components/ui/button";
-import DropDownMultiMenu from "@/components/ui/DropDownMultiMenu/DropDownMultiMenu";
-import MultiLayerMenu from "@/components/ui/MultiLayerMenu/MultiLayerMenu";
+import { Button } from "@/components/ui/my-ui/button";
 import MyFormInput from "@/components/ui/MyForm/MyFormInput/MyFormInput";
 import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
-import { Category } from "@/types/type";
 import { ConfigProvider, Drawer, Select } from "antd";
 import Image from "next/image";
 import { useState } from "react";
@@ -16,75 +13,6 @@ import { IoMdClose, IoMdSearch } from "react-icons/io";
 import { BiSearchAlt2 } from "react-icons/bi";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
-
-const mockCategories: Category[] = [
-  {
-    id: "1",
-    name: "Centers",
-    subCategories: [
-      {
-        id: "1-1",
-        name: "Technology Centers",
-        childCategories: [
-          { id: "1-1-1", name: "IT Training" },
-          { id: "1-1-2", name: "Computer Repairs" },
-        ],
-      },
-      {
-        id: "1-2",
-        name: "Fitness Centers",
-        childCategories: [
-          { id: "1-2-1", name: "Gym Memberships" },
-          { id: "1-2-2", name: "Personal Training" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "2",
-    name: "University",
-    subCategories: [
-      {
-        id: "2-1",
-        name: "Undergraduate",
-        childCategories: [
-          { id: "2-1-1", name: "Bachelor of Science" },
-          { id: "2-1-2", name: "Bachelor of Arts" },
-        ],
-      },
-      {
-        id: "2-2",
-        name: "Graduate Programs",
-        childCategories: [
-          { id: "2-2-1", name: "Master of Science" },
-          { id: "2-2-2", name: "Master of Arts" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "3",
-    name: "Collage",
-    subCategories: [
-      {
-        id: "3-1",
-        name: "Art Collage",
-        childCategories: [
-          { id: "3-1-1", name: "Painting" },
-          { id: "3-1-2", name: "Sculpture" },
-        ],
-      },
-      {
-        id: "3-2",
-        name: "Community Collage",
-        childCategories: [
-          { id: "3-2-1", name: "Local Events" },
-          { id: "3-2-2", name: "Workshops" },
-        ],
-      },
-    ],
-  },
-];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -112,20 +40,28 @@ const Navbar = () => {
         {/* left side start */}
         <div className="flex items-center justify-center gap-6 py-5">
           <div className="overflow-hidden w-16">
-            <Image src={logo} height={500} width={500} alt="Logo" className="w-full h-full" />
+            <Image
+              src={logo}
+              height={500}
+              width={500}
+              alt="Logo"
+              className="w-full h-full"
+            />
           </div>
 
           <ul className="flex items-center space-x-4 text-[#344054] text-base font-normal whitespace-nowrap">
             <Link href={"/"}>
               <li className="text-sm font-medium">Home</li>
             </Link>
-            <li className="text-sm font-medium">
-              <DropDownMultiMenu
-                title="Type of education"
-                menuData={mockCategories}
-              />
-            </li>
-            <li className="text-sm font-medium">Materials</li>
+            <Link href={"/all-courses"}>
+              <li className="text-sm font-medium">Courses</li>
+            </Link>
+            <Link href={"/my-courses"}>
+              <li className="text-sm font-medium">My Courses</li>
+            </Link>
+            <Link href={"/all-institute"}>
+              <li className="text-sm font-medium">All Institutes</li>
+            </Link>
             <li className="text-sm font-medium">Map view</li>
           </ul>
         </div>
@@ -299,17 +235,12 @@ const Navbar = () => {
                     Home
                   </p>
                 </Link>
+                <Link href={"/all-courses"}>
+                  <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
+                    Courses
+                  </p>
+                </Link>
 
-                <div className="  w-full px-3 py-3 text-base font-semibold">
-                  <MultiLayerMenu
-                    menuData={mockCategories}
-                    title="Type of education"
-                    onClose={onClose}
-                  />
-                </div>
-                <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
-                  Materials
-                </p>
                 <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
                   Map view
                 </p>

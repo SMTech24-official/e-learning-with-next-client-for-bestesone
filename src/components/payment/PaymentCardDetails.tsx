@@ -7,7 +7,7 @@ import MyFormInput from "../ui/MyForm/MyFormInput/MyFormInput";
 import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "../ui/button";
+import { Button } from "../ui/my-ui/button";
 import Link from "next/link";
 
 const validationSchema = z.object({

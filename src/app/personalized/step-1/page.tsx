@@ -1,5 +1,5 @@
 import PersonalizedStepsWrapper from "@/components/PersonalizedSteps/PersonalizedStepsWrapper";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/my-ui/button";
 import React from "react";
 
 const PersonalizeStepOne = () => {

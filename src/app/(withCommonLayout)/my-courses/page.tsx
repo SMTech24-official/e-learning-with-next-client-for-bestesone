@@ -4,7 +4,15 @@ import React from "react";
 const MyCourses = () => {
   return (
     <div className="container p-10">
-      <MyCourseCard />
+      <h1 className="text-3xl font-bold text-heading-text my-12">
+        My Courses
+      </h1>
+      <div className="flex flex-col gap-8">
+        <MyCourseCard />
+        <MyCourseCard />
+        <MyCourseCard />
+        <MyCourseCard />
+      </div>
     </div>
   );
 };

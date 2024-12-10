@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/my-ui/button";
 import Image from "next/image";
 import register from "@/assets/authImages/register-image.png";
 import { AuthInput } from "./AuthForm/AuthInput";
@@ -11,7 +11,6 @@ import apple from "@/assets/authImages/apple.png";
 import { RoundedButton } from "./AuthForm/AuthSocialRoundedBtn";
 
 export function SignUpForm() {
- 
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="space-y-2 text-center flex flex-col justify-center items-center">
@@ -72,11 +71,7 @@ export function SignUpForm() {
           altText="facebook Logo"
           className="mx-3"
         />
-        <RoundedButton
-          imageSrc={apple}
-          altText="Apple Logo"
-          className="mx-3"
-        />
+        <RoundedButton imageSrc={apple} altText="Apple Logo" className="mx-3" />
       </div>
       <p className="text-center text-sm text-gray-500">
         Already have an account?{" "}

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/my-ui/button";
 import Image from "next/image";
 import login from "@/assets/authImages/register-image.png";
 import { AuthInput } from "./AuthForm/AuthInput";
@@ -56,7 +56,10 @@ export function SignInForm() {
       </div>
       <p className="text-center text-sm text-gray-500">
         Don&apos;t have an account?{" "}
-        <Link href="/registration" className="font-semibold text-primary underline">
+        <Link
+          href="/registration"
+          className="font-semibold text-primary underline"
+        >
           Register
         </Link>
       </p>

@@ -6,13 +6,12 @@ import institute from "@/assets/cardImages/courseCard/author-image.png";
 
 export default function MyCourseCard() {
   return (
-    <div className="flex flex-col md:flex-row overflow-hidden max-w-3xl">
+    <div className="flex flex-col md:flex-row overflow-hidden shadow xs:shadow-none p-3 rounded-lg">
       {/* Left side with image */}
       <Image
         src={courseImage}
         alt="Course instructor"
-        className="rounded-2xl w-full md:max-w-sm "
-        objectPosition="cover"
+        className="rounded-2xl w-full md:max-w-sm object-fill"
       />
 
       {/* Right side with details */}
@@ -21,17 +20,17 @@ export default function MyCourseCard() {
           <span className="text-xs bg-primary p-2 text-white rounded-full">
             Completed
           </span>
-          <h3 className="text-lg font-medium">
+          <h3 className="text-base sm:text-2xl font-medium">
             HTML, CSS, and Javascript for Web Developers Specialization
           </h3>
 
-          <div className="flex items-center gap-2 text-muted-foreground">
+          <div className="flex items-center gap-4 text-muted-foreground">
             <Image
-              className="h-12 w-12 rounded-full border-2 border-primary"
+              className="h-8 w-8 rounded-full border-2 border-primary"
               src={institute}
               alt="institute image"
             />
-            <span>WebDev Institute</span>
+            <span className="text-xs sm:text-base font-medium text-heading-text">WebDev Institute</span>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
@@ -46,7 +45,7 @@ export default function MyCourseCard() {
           </div>
         </div>
 
-        <div className="flex gap-3 mt-6">
+        <div className="flex flex-col xs:flex-row gap-3 mt-6">
           <Button
             className="hover:bg-primary hover:text-white"
             variant="outline"
