@@ -13,6 +13,7 @@ const config: Config = {
       colors: {
         primary: "#7F56D9",
         "primary-light": "#F7F3FF",
+        "primary-semi-bold": "#42307D",
         "primary-bold": "#231A36",
         "gray-neutral": "#98A2B3",
         "gray-neutral-900": "#111927",
