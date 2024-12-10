@@ -6,13 +6,23 @@ import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { ConfigProvider, Drawer, Select } from "antd";
 import Image from "next/image";
 import { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoMdClose, IoMdSearch } from "react-icons/io";
+import { MdPayment } from "react-icons/md";
+import { MdOutlineShield } from "react-icons/md";
+import { FiHelpCircle } from "react-icons/fi";
+import { CgLogOut } from "react-icons/cg";
 import { BiSearchAlt2 } from "react-icons/bi";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { FaRegEdit } from "react-icons/fa";
+import checklist from "@/assets/checklist.png";
+import coin from "@/assets/dollar.png";
+import { HelpCircle, LogOut, Mail, Phone, User } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -124,7 +134,7 @@ const Navbar = () => {
           >
             <div className="rounded-full h-11 w-11 overflow-hidden cursor-pointer ">
               <Image
-                src={bannerImage} // Replace with your banner image source
+                src={bannerImage}
                 height={50}
                 width={50}
                 alt="Banner Image"
@@ -132,31 +142,94 @@ const Navbar = () => {
               />
             </div>
             <div className="absolute bottom-2 -right-1 bg-[#F2F4F7] p-[1px] rounded-full border-2 border-white">
-              <FaAngleDown size={12} />
+              {isDropdownVisible ? (
+                <FaAngleDown size={12} />
+              ) : (
+                <FaAngleUp size={12} />
+              )}
             </div>
             {isDropdownVisible && (
-              <div className="absolute right-0 top-14  w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                <ul className="py-2">
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={closeDropdown}
-                  >
-                    My Profile
-                  </li>
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={closeDropdown}
-                  >
-                    Logout
-                  </li>
-                  {/* Add other necessary items here */}
-                  <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={closeDropdown}
-                  >
-                    Settings
-                  </li>
-                </ul>
+              <div className="absolute right-0 top-14  w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                <Card className="w-full">
+                  <CardHeader className="space-y-6">
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={"avatar-image"} />
+                        <AvatarFallback>AS</AvatarFallback>
+                      </Avatar>
+                      <div className="space-y-1">
+                        <h2 className="font-semibold text-base">
+                          Aemond Stark
+                        </h2>
+                        <p className="text-xs text-muted-foreground">
+                          stark.aemond@hotmail.com
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center gap-4">
+                      <div className="flex flex-col bg-primary/10 w-full h-full rounded-md items-center gap-2 px-3 py-1">
+                        <div className="rounded-md  p-1">
+                          <Image
+                            src={checklist}
+                            alt="dollar"
+                            className="h-8 w-8"
+                          />
+                        </div>
+                        <div className="text-sm flex">
+                          <p className="font-medium">5 Enrolled</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-col bg-primary/10 w-full h-full rounded-md items-center gap-2 px-3 py-1">
+                        <div className="rounded-md  p-1">
+                          <Image src={coin} alt="dollar" className="h-8 w-8" />
+                        </div>
+                        <div className="text-sm flex">
+                          <p className="font-medium">270 Coin</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold text-base">Personal Info</h3>
+                      <Button variant="ghost" size="sm" className="h-8 w-8">
+                        <FaRegEdit className="h-4 w-4" />
+                      </Button>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 text-sm ">
+                        <User className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                        <span>Henry Xavier</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <Mail className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                        <span>xavierhenry@gmail.com</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <Phone className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                        <span>(88) 24565-875</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <MdPayment className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                        Payment History
+                      </div>
+                      <Link className="flex items-center gap-3 text-sm" href={"/terms-and-condition"}>
+                        <div className="flex items-center gap-3 text-sm">
+                          <MdOutlineShield className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                          <span>Terms & Conditions </span>
+                        </div>
+                      </Link>
+                      <div className="flex items-center gap-3 text-sm">
+                        <FiHelpCircle className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                        <span>Help Center </span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <CgLogOut className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                        Logout
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             )}
           </div>
