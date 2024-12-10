@@ -22,7 +22,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FaRegEdit } from "react-icons/fa";
 import checklist from "@/assets/checklist.png";
 import coin from "@/assets/dollar.png";
-import { HelpCircle, LogOut, Mail, Phone, User } from "lucide-react";
+import { Mail, Phone, User } from "lucide-react";
+import LocationSearchModal from "@/components/location-modal/LocationSearchModal";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,9 +32,14 @@ const Navbar = () => {
     console.log(`selected ${value}`);
   };
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
+  };
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
   };
 
   const closeDropdown = () => {
@@ -72,9 +78,22 @@ const Navbar = () => {
             <Link href={"/all-institute"}>
               <li className="text-sm font-medium">All Institutes</li>
             </Link>
-            <li className="text-sm font-medium">Map view</li>
+            <li
+              onClick={toggleModal}
+              className="text-sm font-medium cursor-pointer"
+            >
+              Map view
+            </li>
           </ul>
         </div>
+        {/* map view modal */}
+
+        {isModalVisible && (
+          <div className="absolute  top-32  w-1/3 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+            <LocationSearchModal toggleModal={toggleModal} />
+          </div>
+        )}
+
         {/* left side end */}
         {/* right side start */}
         <div className="flex items-center gap-5">
@@ -213,7 +232,10 @@ const Navbar = () => {
                         <MdPayment className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
                         Payment History
                       </div>
-                      <Link className="flex items-center gap-3 text-sm" href={"/terms-and-condition"}>
+                      <Link
+                        className="flex items-center gap-3 text-sm"
+                        href={"/terms-and-condition"}
+                      >
                         <div className="flex items-center gap-3 text-sm">
                           <MdOutlineShield className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
                           <span>Terms & Conditions </span>
