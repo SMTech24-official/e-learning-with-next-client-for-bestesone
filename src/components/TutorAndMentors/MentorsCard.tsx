@@ -15,6 +15,7 @@ interface MentorsCardProps {
 const MentorsCard: React.FC<MentorsCardProps> = ({ mentor }) => {
   const { image, name, title } = mentor;
   return (
+    
     <Card className="p-3">
       <div className="w-full rounded-xl">
         <Image src={image} alt="tutor-image" className="w-full rounded-xl" />

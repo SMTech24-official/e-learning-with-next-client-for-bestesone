@@ -20,9 +20,9 @@ const Footer = () => {
             <Link href="/">
               <Image
                 src={footerLogo}
-                width={134}
-                height={28}
-                className="object-contain"
+                width={150}
+                height={150}
+                className="object-contain w-16 h-16"
                 alt="Logo of the website"
               />
             </Link>

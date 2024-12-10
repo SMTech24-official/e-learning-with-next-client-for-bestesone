@@ -15,6 +15,7 @@ import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoMdClose, IoMdSearch } from "react-icons/io";
 import { BiSearchAlt2 } from "react-icons/bi";
 import Link from "next/link";
+import logo from "@/assets/logo.png";
 
 const mockCategories: Category[] = [
   {
@@ -110,13 +111,8 @@ const Navbar = () => {
       <div className=" justify-between items-center gap-4 container hidden lg:flex">
         {/* left side start */}
         <div className="flex items-center justify-center gap-6 py-5">
-          <div className="overflow-hidden w-36">
-            <Image
-              src={"https://i.ibb.co.com/s5vxFJb/image-32.png"}
-              height={500}
-              width={500}
-              alt="Logo"
-            />
+          <div className="overflow-hidden w-16">
+            <Image src={logo} height={500} width={500} alt="Logo" className="w-full h-full" />
           </div>
 
           <ul className="flex items-center space-x-4 text-[#344054] text-base font-normal whitespace-nowrap">
@@ -241,8 +237,8 @@ const Navbar = () => {
           <div className=" w-28 overflow-hidden">
             <Link href={"/"}>
               <Image
-                className="w-36"
-                src={"https://i.ibb.co.com/s5vxFJb/image-32.png"}
+                className="w-12 h-12"
+                src={logo}
                 height={500}
                 width={500}
                 alt="Logo"

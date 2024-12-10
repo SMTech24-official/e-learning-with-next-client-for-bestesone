@@ -1,6 +1,7 @@
 import tutorMale from "@/assets/institute/tutor-male.png";
 import tutorFemale from "@/assets/institute/tutor-female.png";
 import MentorsCard from "./MentorsCard";
+import Link from "next/link";
 
 const mentors = [
   {
@@ -61,7 +62,9 @@ const TutorAndMentors = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {mentors?.map((mentor, idx) => (
-          <MentorsCard key={idx} mentor={mentor} />
+          <Link key={idx} href="/teacher/profile">
+            <MentorsCard key={idx} mentor={mentor} />
+          </Link>
         ))}
       </div>
     </div>
