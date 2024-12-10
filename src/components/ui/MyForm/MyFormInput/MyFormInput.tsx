@@ -2,7 +2,7 @@
 import cn from "@/utils/cn";
 import { Form, Input } from "antd";
 import { useEffect } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller, useFormContext, useWatch } from "react-hook-form";
 
 const MyFormInput = ({
   type = "text",
@@ -11,6 +11,7 @@ const MyFormInput = ({
   inputClassName,
   placeHolder,
   value,
+  currentValue
 }: {
   type?: string;
   name: string;
@@ -18,12 +19,24 @@ const MyFormInput = ({
   inputClassName?: string;
   placeHolder?: string;
   value?: any;
+  currentValue?: any
 }) => {
   const { setValue, control } = useFormContext();
 
+  const inputValue = useWatch({
+        control: control,
+        name,
+      });
+      
   useEffect(() => {
     setValue(name, value, { shouldValidate: false });
   }, [value, name, setValue]);
+
+    useEffect(() => {
+      if(currentValue){
+        currentValue(inputValue);
+      }
+  }, [inputValue, currentValue]);
 
   return (
     <div>
