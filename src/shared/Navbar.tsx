@@ -24,6 +24,7 @@ import checklist from "@/assets/checklist.png";
 import coin from "@/assets/dollar.png";
 import { Mail, Phone, User } from "lucide-react";
 import LocationSearchModal from "@/components/location-modal/LocationSearchModal";
+// import CourseReviewModal from "@/components/CourseReview/CourseReviewModal";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ const Navbar = () => {
   };
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
+  // const [isReviewModalVisible, setReviewModalVisible] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
@@ -41,6 +43,10 @@ const Navbar = () => {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+
+  // const toggleReviewModal = () => {
+  //   setReviewModalVisible(!isReviewModalVisible);
+  // };
 
   const closeDropdown = () => {
     setDropdownVisible(false);
@@ -66,9 +72,9 @@ const Navbar = () => {
           </div>
 
           <ul className="flex items-center space-x-4 text-[#344054] text-base font-normal whitespace-nowrap">
-            <Link href={"/"}>
-              <li className="text-sm font-medium">Home</li>
-            </Link>
+            {/* <Link onClick={toggleReviewModal} href={"/"}> */}
+            <li className="text-sm font-medium">Home</li>
+            {/* </Link> */}
             <Link href={"/all-courses"}>
               <li className="text-sm font-medium">Courses</li>
             </Link>
@@ -93,6 +99,13 @@ const Navbar = () => {
             <LocationSearchModal toggleModal={toggleModal} />
           </div>
         )}
+
+        {/* Course Review Modal */}
+        {/* {isReviewModalVisible && (
+          <div className="absolute  top-32  w-1/3 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+            <CourseReviewModal toggleModal={ toggleReviewModal} />
+          </div>
+        )} */}
 
         {/* left side end */}
         {/* right side start */}
