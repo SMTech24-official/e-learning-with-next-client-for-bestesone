@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Card, CardContent, CardHeader } from "../ui/card";
-import paypal from "@/assets/payments/PayPal-2.png";
+import paypal from "@/assets/payments/PayPal2.png";
 import Image from "next/image";
 import MyFormInput from "../ui/MyForm/MyFormInput/MyFormInput";
 import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
@@ -82,8 +82,8 @@ const PaymentCardForm = () => {
           <div className="w-full flex gap-2">
             <MyFormInput type="checkbox" name={"checkbox"} />
             <p>
-              By checking this pay button you agree to our Terms of
-              Service which is limited to facilitating your payment to Learn
+              By checking this pay button you agree to our Terms of
+              Service which is limited to facilitating your payment to Learn
               with us
             </p>
           </div>

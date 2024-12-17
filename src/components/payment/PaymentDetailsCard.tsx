@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import courseImage from "@/assets/cardImages/courseCard/course-card-cover.png";
+import courseImage from "@/assets/cardImages/courseCard/courseCardCover.png";
 
 const PaymentDetailsCard = () => {
   return (

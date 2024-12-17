@@ -1,8 +1,9 @@
 "use client";
+
 import SectionStarter from "./SectionStarter";
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import dataScience from "@/assets/categoryImage/data-science.png";
+import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper React components here.
+import dataScience from "@/assets/categoryImage/dataScience.png";
 import economy from "@/assets/categoryImage/economy.png";
 import robotics from "@/assets/categoryImage/robotics.png";
 import business from "@/assets/categoryImage/business.png";
@@ -10,8 +11,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./swiperStyle.css";
-import { Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules"; // Import necessary Swiper modules.
 import CategoryCard from "./CategoryCard/CategoryCard";
+import type { Swiper as SwiperInstance } from "swiper/types"; // Use type aliasing to avoid name collision.
 
 const mockCategory = [
   {
@@ -65,7 +67,7 @@ const mockCategory = [
 ];
 
 const OurCategories = () => {
-  const [setSwiperRef] = useState(null);
+  const [, setSwiperRef] = useState<SwiperInstance | null>(null); // Use SwiperInstance for typing.
 
   return (
     <div className="container mb-[100px]">
@@ -75,7 +77,7 @@ const OurCategories = () => {
       />
       <div className="relative mt-12">
         <Swiper
-          onSwiper={setSwiperRef}
+          onSwiper={setSwiperRef} // Correctly type Swiper instance.
           centeredSlides={false}
           breakpoints={{
             540: {

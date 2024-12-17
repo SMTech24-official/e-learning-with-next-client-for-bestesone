@@ -1,55 +1,70 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/my-ui/button";
 import Image from "next/image";
 import register from "@/assets/authImages/register-image.png";
-import { AuthInput } from "./AuthForm/AuthInput";
+import AuthInput from "./AuthForm/AuthInput";
 import { AuthPasswordField } from "./AuthForm/AuthPasswordField";
 import google from "@/assets/authImages/google.png";
 import facebook from "@/assets/authImages/Facebook.png";
 import apple from "@/assets/authImages/apple.png";
 import { RoundedButton } from "./AuthForm/AuthSocialRoundedBtn";
+import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpSchema } from "@/schema/signUpSchema";
+import MyFormCheckBox from "../ui/MyForm/MyFormCheckBox/MyFormCheckBox";
+import { useRouter } from "next/navigation";
 
 export function SignUpForm() {
+  const router = useRouter();
+  const onSubmit = (data: any) => {
+    router.push("/personalized/step-1");
+    console.log(data);
+  };
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="space-y-2 text-center flex flex-col justify-center items-center">
         <Image src={register} alt="register Image" />
         <h1 className="text-3xl font-bold">Register</h1>
       </div>
-      <form className="space-y-4">
+      <MyFormWrapper
+        resolver={zodResolver(signUpSchema)}
+        onSubmit={onSubmit}
+        className="space-y-4"
+      >
         <AuthInput
+          name="name"
           label="Name"
           type="text"
-          id="text"
           placeholder="John Doe"
-          required
         />
         <AuthInput
+          name="email"
           label="Email"
           type="email"
-          id="email"
           placeholder="example@email.com"
-          required
         />
-        <AuthPasswordField />
-        <div className="flex items-center space-x-2">
-          <input className="" type="checkbox" id="terms" />
-          <label htmlFor="terms" className="text-sm">
-            Agree with{" "}
-            <Link href="/terms" className="underline">
-              Terms & condition
-            </Link>{" "}
-            and{" "}
-            <Link href="/privacy" className="underline">
-              Privacy Policy
-            </Link>
-          </label>
-        </div>
+        <AuthPasswordField name="password" label="Password" />
+        <MyFormCheckBox
+          name="terms"
+          label={
+            <>
+              Agree with{" "}
+              <Link href="/terms" className="underline">
+                Terms & condition
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy" className="underline">
+                Privacy Policy
+              </Link>
+            </>
+          }
+        />
         <Button type="submit" className="w-full">
           Sign Up
         </Button>
-      </form>
+      </MyFormWrapper>
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />

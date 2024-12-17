@@ -1,3 +1,4 @@
+"use client"
 import { AuthPage } from "@/components/AuthPage/AuthPage";
 import { SignInForm } from "@/components/AuthPage/SignInForm";
 import background from "@/assets/authImages/authBgImage.png";

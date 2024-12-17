@@ -3,8 +3,8 @@ import Instagram from "@/assets/footer/instagram.svg";
 import Twitter from "@/assets/footer/twitter.svg";
 import Linkedin from "@/assets/footer/linkedin.svg";
 import Youtube from "@/assets/footer/youtube.svg";
-import testimonialImage1 from "@/assets/testimonial/testimonial-image-1.jpg";
-import testimonialImage2 from "@/assets/testimonial/testimonial-image-2.jpg";
+import testimonialImage1 from "@/assets/testimonial/testimonialImage1.jpg";
+import testimonialImage2 from "@/assets/testimonial/testimonialImage2.jpg";
 import { MenuItem, SocialLink, Testimonial } from "@/interface/interface";
 
 // testimonial constants

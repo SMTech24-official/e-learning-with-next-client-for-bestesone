@@ -1,4 +1,7 @@
-import PaymentCardForm from "@/components/payment/PaymentCardDetails";
+"use client"
+import dynamic from "next/dynamic";
+const PaymentCardForm = dynamic(() => import("@/components/payment/PaymentCardDetails"), { ssr: false });
+
 
 const PaymentCardDetails = () => {
   return (

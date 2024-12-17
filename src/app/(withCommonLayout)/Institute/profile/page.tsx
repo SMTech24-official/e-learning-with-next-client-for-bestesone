@@ -1,5 +1,5 @@
 import Image from "next/image";
-import institute from "@/assets/institute/institute-image.png";
+import institute from "@/assets/institute/instituteImage.png";
 import CourseSection from "@/components/CourseSection/CourseSection";
 import TutorAndMentors from "@/components/TutorAndMentors/TutorAndMentors";
 import ContactInformatoin from "@/components/ContactInformation/ContactInformatoin";

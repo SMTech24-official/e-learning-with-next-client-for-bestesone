@@ -1,6 +1,4 @@
 import PaymentSuccessCard from "@/components/payment/PaymentSuccessCard";
-import { ImCheckmark } from "react-icons/im";
-<ImCheckmark />;
 
 const PaymentHistory = () => {
   const payments = [

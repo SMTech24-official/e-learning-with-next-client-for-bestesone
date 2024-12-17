@@ -1,5 +1,6 @@
 "use client";
-import React, { useRef, useState } from "react";
+
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -59,8 +60,13 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
           nextEl: nextRef.current,
         }}
         onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
+          if (
+            swiper.params.navigation &&
+            typeof swiper.params.navigation !== "boolean"
+          ) {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }
         }}
         centeredSlides={false}
         breakpoints={{

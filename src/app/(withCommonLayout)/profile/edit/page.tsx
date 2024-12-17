@@ -7,13 +7,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import MyFormInput from "@/components/ui/MyForm/MyFormInput/MyFormInput";
-import Image from "next/image";
 import { z } from "zod";
-import image from "@/assets/institute/teacher-image.png";
-
-// {
-//   required_error: "Full name is required",
-// }
+import teacher from "@/assets/institute/teacherImage.png";
+import Image from "next/image";
 
 const validationSchema = z.object({
   name: z
@@ -67,7 +63,7 @@ export default function EditProfile() {
           >
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="h-24 w-24">
-                <Image src={image} alt="Profile picture" />
+                <Image src={teacher} alt="Profile picture" />
               </div>
               <Button variant="outline" className="px-5 py-2">
                 Change Picture

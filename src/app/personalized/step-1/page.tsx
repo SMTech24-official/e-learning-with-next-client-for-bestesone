@@ -1,86 +1,57 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import PersonalizedStepsWrapper from "@/components/PersonalizedSteps/PersonalizedStepsWrapper";
 import { Button } from "@/components/ui/my-ui/button";
-import React from "react";
+import MyFormRadioGroup from "@/components/ui/MyForm/MyFormRadioGroup/MyFormRadioGroup";
+import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { z } from "zod";
 
 const PersonalizeStepOne = () => {
+  const router = useRouter();
+  const onSubmit = (data: any) => {
+    console.log("PersonalizeStepOne data:", data);
+    router.push("/personalized/step-2");
+  };
+
+  // Define radio button options
+  const schoolYearOptions = [
+    { value: "school", label: "School" },
+    { value: "collage", label: "Collage" },
+    { value: "university", label: "University" },
+    { value: "institute", label: "Institute" },
+    { value: "training center", label: "Training Center" },
+  ];
+
+  const educationSchema = z.object({
+    education: z.string().min(1, { message: "Please select your education" }),
+  });
+
   return (
     <>
       <PersonalizedStepsWrapper
         heading="Let's Personalize Your Learning Journey!"
         title="Answer quick questions to help us create the best learning experience for you."
       >
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">
-          What school year are you currently in ?
-        </h2>
-
         {/* Radio Buttons */}
-        <form className="space-y-3">
-          <div className="flex items-center">
-            <input
-              type="radio"
-              id="javascript"
-              name="language"
-              value="javascript"
-              className="mr-2"
-            />
-            <label htmlFor="javascript" className="text-gray-700">
-              School
-            </label>
-          </div>
-          <div className="flex items-center">
-            <input
-              type="radio"
-              id="python"
-              name="language"
-              value="python"
-              className="mr-2"
-            />
-            <label htmlFor="python" className="text-gray-700">
-              Collage
-            </label>
-          </div>
-          <div className="flex items-center">
-            <input
-              type="radio"
-              id="java"
-              name="language"
-              value="java"
-              className="mr-2"
-            />
-            <label htmlFor="java" className="text-gray-700">
-              University
-            </label>
-          </div>
-          <div className="flex items-center">
-            <input
-              type="radio"
-              id="csharp"
-              name="language"
-              value="csharp"
-              className="mr-2"
-            />
-            <label htmlFor="csharp" className="text-gray-700">
-              Institute
-            </label>
-          </div>
-          <div className="flex items-center">
-            <input
-              type="radio"
-              id="other"
-              name="language"
-              value="other"
-              className="mr-2"
-            />
-            <label htmlFor="other" className="text-gray-700">
-              Training Center
-            </label>
-          </div>
+        <MyFormWrapper
+          resolver={zodResolver(educationSchema)}
+          onSubmit={onSubmit}
+          className="space-y-3"
+        >
+          <MyFormRadioGroup
+            name="education"
+            label="What education are you currently in?"
+            options={schoolYearOptions}
+          />
 
           {/* Next Button */}
           <Button type="submit" className="w-full">
             Next
           </Button>
-        </form>
+        </MyFormWrapper>
       </PersonalizedStepsWrapper>
     </>
   );

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client"
 import { FormProvider, useForm } from "react-hook-form";
 import cn from "../../../../utils/cn";
 import { ConfigProvider } from "antd";

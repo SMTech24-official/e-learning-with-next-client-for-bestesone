@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/my-ui/button";
+import { Controller, useFormContext } from "react-hook-form";
+import { useEffect, useState } from "react";
 
 type Topic = {
   id: string;
@@ -27,48 +28,52 @@ const topics: Topic[] = [
 ];
 
 export default function TopicSelector() {
-  const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
+  const { control, setValue } = useFormContext();
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
 
+  useEffect(() => {
+    // Synchronize the selected topics with the react-hook-form state when selectedTopics changes
+    setValue("topics", selectedTopics);
+  }, [selectedTopics, setValue]);
+
+  // Function to toggle the selected topic
   const toggleTopic = (topicId: string) => {
-    const newSelectedTopics = new Set(selectedTopics);
-    if (newSelectedTopics.has(topicId)) {
-      newSelectedTopics.delete(topicId);
-    } else {
-      newSelectedTopics.add(topicId);
-    }
-    setSelectedTopics(newSelectedTopics);
-  };
-
-  const handleGetStarted = () => {
-    console.log("Selected topics:", Array.from(selectedTopics));
-    // Handle the selected topics here
+    setSelectedTopics((prevSelectedTopics) => {
+      const isTopicSelected = prevSelectedTopics.includes(topicId);
+      return isTopicSelected
+        ? prevSelectedTopics.filter((id) => id !== topicId) // Remove the topic if already selected
+        : [...prevSelectedTopics, topicId]; // Add the topic if not selected
+    });
   };
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div className="flex flex-wrap gap-2 justify-center mb-8">
-        {topics.map((topic) => (
-          <Button
-            variant={"outline"}
-            key={topic.id}
-            onClick={() => toggleTopic(topic.id)}
-            className={cn(
-              " hover:bg-primary/10 dark:border-primary dark:text-primary dark:hover:bg-primary/10 transition-colors",
-              selectedTopics.has(topic.id)
-                ? "bg-primary-bold text-white hover:bg-primary"
-                : " text-primary-bold/50 hover:bg-primary hover:text-white"
-            )}
-          >
-            {topic.name}
-          </Button>
-        ))}
-      </div>
-      <Button
-        onClick={handleGetStarted}
-        className="w-full bg-primary hover:bg-primary text-white py-2 rounded-lg text-base font-medium"
-      >
-        Get Started
-      </Button>
+      <Controller
+        name="topics"
+        control={control}
+        rules={{ required: "At least one topic must be selected" }}
+        render={({ fieldState: { error } }) => (
+          <>
+            <div className="flex flex-wrap gap-2 justify-center mb-8">
+              {topics.map((topic) => (
+                <span
+                  key={topic.id}
+                  onClick={() => toggleTopic(topic.id)}
+                  className={cn(
+                    "border border-[#726986] hover:bg-primary/10 dark:border-primary dark:text-primary dark:hover:bg-primary/10 transition-colors p-3 rounded-lg",
+                    selectedTopics.includes(topic.id)
+                      ? "bg-primary-bold text-white hover:bg-primary"
+                      : "text-primary-bold/50 hover:bg-primary hover:text-white"
+                  )}
+                >
+                  {topic.name}
+                </span>
+              ))}
+            </div>
+            {error && <small style={{ color: "red" }}>{error.message}</small>}
+          </>
+        )}
+      />
     </div>
   );
 }

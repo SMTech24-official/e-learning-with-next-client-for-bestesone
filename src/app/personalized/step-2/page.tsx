@@ -1,8 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import PersonalizedStepsWrapper from "@/components/PersonalizedSteps/PersonalizedStepsWrapper";
 import TopicSelector from "@/components/PersonalizedSteps/TopicSelector";
+import { Button } from "@/components/ui/button";
+import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
+import { topicSchema } from "@/schema/topicSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const PersonalizeStepTwo = () => {
+  const router = useRouter();
+  const onSubmit = (data: any) => {
+    router.push("/");
+    console.log(data);
+  };
   return (
     <>
       <PersonalizedStepsWrapper
@@ -13,7 +25,12 @@ const PersonalizeStepTwo = () => {
         <h2 className="text-2xl font-semibold text-center mb-8">
           What would you like to learn about?
         </h2>
-        <TopicSelector />
+        <MyFormWrapper resolver={zodResolver(topicSchema)} onSubmit={onSubmit}>
+          <TopicSelector />
+          <Button variant={"default"}>
+            Get Started
+          </Button>
+        </MyFormWrapper>
       </PersonalizedStepsWrapper>
     </>
   );

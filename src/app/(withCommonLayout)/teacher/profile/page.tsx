@@ -1,6 +1,6 @@
 import Image from "next/image";
 import CourseSection from "@/components/CourseSection/CourseSection";
-import teacher from "@/assets/institute/teacher-image.png";
+import teacher from "@/assets/institute/teacherImage.png";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ExperienceCard {

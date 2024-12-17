@@ -1,5 +1,4 @@
 import MyCourseCard from "@/components/myCourseCard/MyCourseCard";
-import React from "react";
 
 const MyCourses = () => {
   return (

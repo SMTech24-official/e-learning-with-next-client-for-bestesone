@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Users } from "lucide-react";
 import Image from "next/image";
-import courseImage from "@/assets/cardImages/courseCard/course-card-cover.png";
-import institute from "@/assets/cardImages/courseCard/author-image.png";
+import courseImage from "@/assets/cardImages/courseCard/courseCardCover.png";
+import institute from "@/assets/cardImages/courseCard/authorImage.png";
 
 export default function MyCourseCard() {
   return (

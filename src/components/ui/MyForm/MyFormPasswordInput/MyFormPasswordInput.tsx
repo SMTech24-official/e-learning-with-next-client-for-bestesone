@@ -1,5 +1,6 @@
+"use client";
 import { Form, Input } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Controller, useFormContext, useWatch } from "react-hook-form";
 
 interface MyFormPasswordInputProps {
@@ -7,7 +8,6 @@ interface MyFormPasswordInputProps {
   name: string; // Name of the input field (used for react-hook-form control)
   label: string; // Label text displayed above the input field
   onValueChange: (value: string) => void; // Callback triggered when the input value changes
-  matchWith?: string; // Optional, the name of the field to match with (e.g., confirm password)
 }
 
 const MyFormPasswordInput = ({
@@ -15,33 +15,14 @@ const MyFormPasswordInput = ({
   name,
   label,
   onValueChange,
-  matchWith,
 }: MyFormPasswordInputProps) => {
-  const [isPasswordMatched, setIsPasswordMatched] = useState(false);
   const { control } = useFormContext();
 
-  const matchWithValue = useWatch({
-    control: control,
-    matchWith,
-  });
-  const inputValue = useWatch({
-    control: control,
-    name,
-  });
+  const inputValue = useWatch({ control, name }); // Watch the input value
 
   useEffect(() => {
-    if (matchWith) {
-      if (inputValue == matchWithValue[matchWith]) {
-        setIsPasswordMatched(true);
-      } else {
-        setIsPasswordMatched(false);
-      }
-    }
-  }, [inputValue]);
-
-  useEffect(() => {
-    onValueChange(inputValue);
-  }, [inputValue]);
+    onValueChange(inputValue); // Trigger onValueChange when the input value changes
+  }, [inputValue, onValueChange]);
 
   return (
     <div>
@@ -49,7 +30,7 @@ const MyFormPasswordInput = ({
         name={name}
         control={control}
         rules={{
-          required: true,
+          required: `${label} is required`, // Add a dynamic error message
         }}
         render={({ field, fieldState: { error } }) => (
           <div className="flex flex-col justify-center gap-1">
@@ -61,14 +42,6 @@ const MyFormPasswordInput = ({
           </div>
         )}
       />
-
-      {matchWith && (
-        <div>
-          <small style={{ color: isPasswordMatched ? "green" : "red" }}>
-            {isPasswordMatched ? "Password matched" : "Password not matched"}
-          </small>
-        </div>
-      )}
     </div>
   );
 };

@@ -1,9 +1,10 @@
-import Image from "next/image";
+"use client";
 import React from "react";
-import successImage from "@/assets/payments/payment-success.png";
+import Image from "next/image";
+import successImage from "@/assets/payments/paymentSuccess.png";
 import { Button } from "@/components/ui/my-ui/button";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="container py-10">
       <div className="flex flex-col justify-center items-center">
@@ -17,4 +18,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

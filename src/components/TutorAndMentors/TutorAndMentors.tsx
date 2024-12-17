@@ -1,5 +1,5 @@
-import tutorMale from "@/assets/institute/tutor-male.png";
-import tutorFemale from "@/assets/institute/tutor-female.png";
+import tutorMale from "@/assets/institute/tutorMale.png";
+import tutorFemale from "@/assets/institute/tutorFemale.png";
 import MentorsCard from "./MentorsCard";
 import Link from "next/link";
 

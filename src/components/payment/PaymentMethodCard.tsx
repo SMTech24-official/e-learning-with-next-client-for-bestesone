@@ -4,11 +4,11 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/my-ui/button";
 import Image from "next/image";
-import masterCard from "@/assets/payments/master-card.png";
+import masterCard from "@/assets/payments/masterCard.png";
 import visa from "@/assets/payments/visa.png";
 import paypal from "@/assets/payments/paypal.png";
-import applePay from "@/assets/payments/apple-pay.png";
-import googlePay from "@/assets/payments/google-pay.png";
+import applePay from "@/assets/payments/applePay.png";
+import googlePay from "@/assets/payments/googlePay.png";
 import clicq from "@/assets/payments/clicq.png";
 import { useRouter } from "next/navigation";
 

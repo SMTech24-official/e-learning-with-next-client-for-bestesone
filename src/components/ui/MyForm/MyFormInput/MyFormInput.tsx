@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import cn from "@/utils/cn";
 import { Form, Input } from "antd";
 import { useEffect } from "react";
@@ -11,7 +12,7 @@ const MyFormInput = ({
   inputClassName,
   placeHolder,
   value,
-  currentValue
+  currentValue,
 }: {
   type?: string;
   name: string;
@@ -19,23 +20,23 @@ const MyFormInput = ({
   inputClassName?: string;
   placeHolder?: string;
   value?: any;
-  currentValue?: any
+  currentValue?: any;
 }) => {
   const { setValue, control } = useFormContext();
 
   const inputValue = useWatch({
-        control: control,
-        name,
-      });
-      
+    control: control,
+    name,
+  });
+
   useEffect(() => {
     setValue(name, value, { shouldValidate: false });
   }, [value, name, setValue]);
 
-    useEffect(() => {
-      if(currentValue){
-        currentValue(inputValue);
-      }
+  useEffect(() => {
+    if (currentValue) {
+      currentValue(inputValue);
+    }
   }, [inputValue, currentValue]);
 
   return (
