@@ -8,7 +8,7 @@ import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/my-ui/button";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const validationSchema = z.object({
   card_number: z.any({
@@ -27,8 +27,10 @@ const validationSchema = z.object({
 });
 
 const PaymentCardForm = () => {
-  const handleSubmit = (data: any) => {
+  const router = useRouter();
+  const onSubmit = (data: any) => {
     console.log(data);
+    router.push("/payment/payment-success");
   };
   return (
     <Card className="max-w-lg mx-auto mt-5 border border-[#98A2B3] rounded-3xl">
@@ -46,7 +48,7 @@ const PaymentCardForm = () => {
         {/* <MyFormInput name="Card Number" placeHolder="Enter Your Number" label="card-number" /> */}
         <MyFormWrapper
           className={"flex flex-col gap-5 w-full "}
-          onSubmit={handleSubmit}
+          onSubmit={onSubmit}
           resolver={zodResolver(validationSchema)}
         >
           <div className="w-full">
@@ -82,20 +84,16 @@ const PaymentCardForm = () => {
           <div className="w-full flex gap-2">
             <MyFormInput type="checkbox" name={"checkbox"} />
             <p>
-              By checking this pay button you agree to our Terms of
-              Service which is limited to facilitating your payment to Learn
-              with us
+              By checking this pay button you agree to our Terms of Service
+              which is limited to facilitating your payment to Learn with us
             </p>
           </div>
-
-          <Link href={"/payment/payment-success"}>
-            <Button
-              className=" w-full py-3 rounded-lg bg-primary text-white text-base font-normal leading-6"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </Link>
+          <Button
+            className=" w-full py-3 rounded-lg bg-primary text-white text-base font-normal leading-6"
+            type="submit"
+          >
+            Submit
+          </Button>
         </MyFormWrapper>
       </CardContent>
     </Card>

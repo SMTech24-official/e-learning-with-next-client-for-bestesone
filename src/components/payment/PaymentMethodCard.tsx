@@ -50,13 +50,8 @@ const PaymentMethodCard = () => {
       </CardHeader>
       <CardContent>
         <MyFormWrapper onSubmit={onSubmit}>
-          <MyFormPaymentRadioGroup
-            name="paymentMethod"
-            label="Select a payment method"
-            options={paymentOptions}
-            defaultValue="paypal"
-            rules={{ required: "Please select a payment method" }}
-          />
+          {/* here is radio groups */}
+          <MyFormPaymentRadioGroup  options={paymentOptions} />
           <Button type="submit" className="mt-6 w-full" size="lg">
             Next
           </Button>
