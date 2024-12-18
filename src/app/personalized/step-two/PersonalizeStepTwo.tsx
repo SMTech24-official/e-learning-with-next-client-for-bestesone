@@ -7,7 +7,6 @@ import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { topicSchema } from "@/schema/topicSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import React from "react";
 
 const PersonalizeStepTwo = () => {
   const router = useRouter();

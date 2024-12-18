@@ -14,7 +14,7 @@ interface PaymentProps {
 export default function PaymentSuccessCard({ payments }: PaymentProps) {
   return (
     <div className="w-full max-w-md space-y-3">
-      {payments.map((payment: payment) => (
+      {payments?.map((payment: payment) => (
         <>
           <div key={payment.id} className="flex items-center px-4">
             <div className="flex items-center gap-3 flex-1">

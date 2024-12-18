@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 export function SignUpForm() {
   const router = useRouter();
   const onSubmit = (data: any) => {
-    router.push("/personalized/step-1");
+    router.push("/personalized/step-one");
     console.log(data);
   };
   return (

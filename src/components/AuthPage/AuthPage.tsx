@@ -26,7 +26,7 @@ export function AuthPage({
       </div>
       <div className="hidden lg:block relative overflow-hidden">
         <Image
-          src={backgroundImageSrc}
+          src={backgroundImageSrc.src}
           alt={"background image"}
           layout="fill"
           objectFit="cover"
@@ -35,7 +35,7 @@ export function AuthPage({
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative w-3/4 h-3/4">
             <Image
-              src={containerImageSrc}
+              src={containerImageSrc.src}
               alt={"background container image"}
               layout="fill"
               objectFit="cover"
@@ -45,7 +45,7 @@ export function AuthPage({
               <h2 className="text-3xl font-bold mt-16">{headingText}</h2>
               <div className="relative w-3/4 h-1/2">
                 <Image
-                  src={authImage}
+                  src={authImage.src}
                   alt="Featured image"
                   layout="fill"
                   objectFit="contain"
@@ -55,7 +55,7 @@ export function AuthPage({
             <div className="absolute -right-8 top-1/3 top transform -translate-y-1/2">
               <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
                 <Image
-                  src={floatingImageSrc}
+                  src={floatingImageSrc.src}
                   alt={"floating image"}
                   layout="fill"
                   objectFit="cover"

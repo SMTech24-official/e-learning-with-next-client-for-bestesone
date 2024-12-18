@@ -7,13 +7,14 @@ import MyFormRadioGroup from "@/components/ui/MyForm/MyFormRadioGroup/MyFormRadi
 import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+
 import { z } from "zod";
 
 const PersonalizeStepOne = () => {
   const router = useRouter();
   const onSubmit = (data: any) => {
     console.log("PersonalizeStepOne data:", data);
-    router.push("/personalized/step-2");
+    router.push("/personalized/step-two");
   };
 
   // Define radio button options
@@ -28,6 +29,11 @@ const PersonalizeStepOne = () => {
   const educationSchema = z.object({
     education: z.string().min(1, { message: "Please select your education" }),
   });
+
+
+
+
+
 
   return (
     <>

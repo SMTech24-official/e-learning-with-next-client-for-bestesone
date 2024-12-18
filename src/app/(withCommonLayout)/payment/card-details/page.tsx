@@ -1,14 +1,10 @@
 "use client"
-import dynamic from "next/dynamic";
-const PaymentCardForm = dynamic(() => import("@/components/payment/PaymentCardDetails"), { ssr: false });
+import PaymentCardForm from "@/components/payment/PaymentCardDetails";
 
-
-const PaymentCardDetails = () => {
+export default function Page() {
   return (
     <div className="container min-h-screen mx-auto">
       <PaymentCardForm />
     </div>
   );
-};
-
-export default PaymentCardDetails;
+}

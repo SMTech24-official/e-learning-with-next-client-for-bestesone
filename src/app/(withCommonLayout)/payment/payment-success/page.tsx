@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import successImage from "@/assets/payments/paymentSuccess.png";
 import { Button } from "@/components/ui/my-ui/button";
@@ -8,7 +7,7 @@ const Page = () => {
   return (
     <div className="container py-10">
       <div className="flex flex-col justify-center items-center">
-        <Image src={successImage} alt="success image" />
+        <Image src={successImage.src} alt="success image" />
         <h1 className="text-2xl sm:text-4xl text-heading-text my-8">
           Your Payment Successful
         </h1>

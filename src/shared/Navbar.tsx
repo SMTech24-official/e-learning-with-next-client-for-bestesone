@@ -72,9 +72,9 @@ const Navbar = () => {
           </div>
 
           <ul className="flex items-center space-x-4 text-[#344054] text-base font-normal whitespace-nowrap">
-            {/* <Link onClick={toggleReviewModal} href={"/"}> */}
+            <Link href={"/"}>
             <li className="text-sm font-medium">Home</li>
-            {/* </Link> */}
+            </Link>
             <Link href={"/all-courses"}>
               <li className="text-sm font-medium">Courses</li>
             </Link>
