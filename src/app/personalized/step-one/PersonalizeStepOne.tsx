@@ -5,15 +5,30 @@ import PersonalizedStepsWrapper from "@/components/PersonalizedSteps/Personalize
 import { Button } from "@/components/ui/my-ui/button";
 import MyFormRadioGroup from "@/components/ui/MyForm/MyFormRadioGroup/MyFormRadioGroup";
 import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
+import { updateRegistrationData } from "@/redux/features/authSlice/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { RootState } from "@/redux/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
 import { z } from "zod";
 
 const PersonalizeStepOne = () => {
+  const registrationData = useAppSelector(
+    (state: RootState) => state.auth.registrationData
+  );
+  const dispatch = useAppDispatch();
   const router = useRouter();
-  const onSubmit = (data: any) => {
-    console.log("PersonalizeStepOne data:", data);
+
+  const onSubmit = (data: { institute: string }) => {
+    dispatch(
+      updateRegistrationData({
+        student: {
+          ...registrationData?.student,
+          institute: data.institute,
+        },
+      })
+    );
     router.push("/personalized/step-two");
   };
 
@@ -27,13 +42,8 @@ const PersonalizeStepOne = () => {
   ];
 
   const educationSchema = z.object({
-    education: z.string().min(1, { message: "Please select your education" }),
+    institute: z.string().min(1, { message: "Please select your education" }),
   });
-
-
-
-
-
 
   return (
     <>
@@ -48,7 +58,7 @@ const PersonalizeStepOne = () => {
           className="space-y-3"
         >
           <MyFormRadioGroup
-            name="education"
+            name="institute"
             label="What education are you currently in?"
             options={schoolYearOptions}
           />

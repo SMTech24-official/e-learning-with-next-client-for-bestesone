@@ -32,7 +32,7 @@ export default function TopicSelector() {
 
   useEffect(() => {
     // Synchronize the selected topics with the react-hook-form state when selectedTopics changes
-    setValue("topics", selectedTopics);
+    setValue("interest", selectedTopics);
   }, [selectedTopics, setValue]);
 
   // Function to toggle the selected topic
@@ -48,7 +48,7 @@ export default function TopicSelector() {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <Controller
-        name="topics"
+        name="interest"
         control={control}
         rules={{ required: "At least one topic must be selected" }}
         render={({ fieldState: { error } }) => (

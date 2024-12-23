@@ -15,13 +15,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/schema/signUpSchema";
 import MyFormCheckBox from "../ui/MyForm/MyFormCheckBox/MyFormCheckBox";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/redux/hooks";
+import { saveRegistrationData } from "@/redux/features/authSlice/authSlice";
 
 export function SignUpForm() {
+  const dispatch = useAppDispatch();
   const router = useRouter();
+
   const onSubmit = (data: any) => {
+    const registrationData = {
+      password: data.password,
+      student: {
+        name: data.name,
+        email: data.email,
+        referredId: data.referredId,
+      },
+    };
+    dispatch(saveRegistrationData(registrationData));
     router.push("/personalized/step-one");
-    console.log(data);
   };
+
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="space-y-2 text-center flex flex-col justify-center items-center">
@@ -46,6 +59,12 @@ export function SignUpForm() {
           placeholder="example@email.com"
         />
         <AuthPasswordField name="password" label="Password" />
+        <AuthInput
+          name="referredId"
+          label="Refer Id (optional)"
+          type="text"
+          placeholder="sha38dk93"
+        />
         <MyFormCheckBox
           name="terms"
           label={
