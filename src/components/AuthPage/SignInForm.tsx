@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/my-ui/button";
 import Image from "next/image";
-import login from "@/assets/authImages/register-image.png";
+import loginImage from "@/assets/authImages/register-image.png";
 import { AuthPasswordField } from "./AuthForm/AuthPasswordField";
 import google from "@/assets/authImages/google.png";
 import facebook from "@/assets/authImages/Facebook.png";
@@ -13,15 +13,45 @@ import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
 import AuthInput from "./AuthForm/AuthInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/schema/signInSchema";
+import { useLoginMutation } from "@/redux/features/authSlice/authApi";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { setUser } from "@/redux/features/authSlice/authSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 export function SignInForm() {
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const [login] = useLoginMutation();
+
+  const onSubmit = async (data: any) => {
+    const credentials = {
+      email: data.email,
+      password: data.password,
+    };
+
+    try {
+      const response = await login(credentials).unwrap();
+      console.log(response.data.token);
+      if (response.success) {
+        dispatch(setUser({ token: response?.data.token, user: null }));
+      }
+      toast.success(response?.message);
+
+      router.push("/");
+    } catch (error) {
+      if (error) {
+        toast.error((error as any)?.data.message);
+      } else {
+        toast.error("An unknown error occurred.");
+      }
+      console.error("Login failed:", error);
+    }
   };
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="space-y-2 text-center flex flex-col justify-center items-center">
-        <Image src={login} alt="register Image" />
+        <Image src={loginImage} alt="register Image" />
         <h1 className="text-3xl font-bold">Sign In</h1>
         <p className="text-base text-gray-500">Welcome to Learning Together</p>
       </div>

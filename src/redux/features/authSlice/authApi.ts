@@ -16,8 +16,15 @@ export const authApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    getUser: builder.query({
+      query: () => ({
+        url: "/auth/profile",
+        method: "GET",
+      }),
+      providesTags: ["User"],
+    }),
   }),
-  overrideExisting: false, // Ensure new endpoints are added without overwriting existing ones
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useGetUserQuery } =
+  authApi;
