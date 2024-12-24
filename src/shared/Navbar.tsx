@@ -40,8 +40,10 @@ const Navbar = () => {
   console.log(token);
 
   const { data, error, isLoading } = useGetUserQuery(token);
-  const user = data?.data;
+  const { data: user } = data || {};
+  const loggedUser = user?.student[0];
   console.log(user);
+  console.log(user.student[0]);
 
   useEffect(() => {
     if (user && token) {
@@ -185,7 +187,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          {token ? (
+          {user ? (
             <>
               <div
                 className="relative  h-16 flex items-center"
@@ -214,15 +216,15 @@ const Navbar = () => {
                       <CardHeader className="space-y-6">
                         <div className="flex items-center gap-3">
                           <Avatar className="h-12 w-12">
-                            <AvatarImage src={"avatar-image"} />
+                            <AvatarImage src={loggedUser.profileImage} />
                             <AvatarFallback>AS</AvatarFallback>
                           </Avatar>
                           <div className="space-y-1">
                             <h2 className="font-semibold text-base">
-                              Aemond Stark
+                              {loggedUser.name}
                             </h2>
                             <p className="text-xs text-muted-foreground">
-                              {user?.email || "demo@example.com"}
+                              {loggedUser?.email || "demo@example.com"}
                             </p>
                           </div>
                         </div>
@@ -236,7 +238,7 @@ const Navbar = () => {
                               />
                             </div>
                             <div className="text-sm flex">
-                              <p className="font-medium">5 Enrolled</p>
+                              <p className="font-medium">{loggedUser.enrolled || "0 Enrolled"}</p>
                             </div>
                           </div>
                           <div className="flex flex-col bg-primary/10 w-full h-full rounded-md items-center gap-2 px-3 py-1">
@@ -248,7 +250,7 @@ const Navbar = () => {
                               />
                             </div>
                             <div className="text-sm flex">
-                              <p className="font-medium">270 Coin</p>
+                              <p className="font-medium">{loggedUser.coin} Coin</p>
                             </div>
                           </div>
                         </div>
@@ -265,15 +267,15 @@ const Navbar = () => {
                         <div className="space-y-3">
                           <div className="flex items-center gap-3 text-sm ">
                             <User className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            <span>Henry Xavier</span>
+                            <span>{loggedUser.name}</span>
                           </div>
                           <div className="flex items-center gap-3 text-sm">
                             <Mail className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            <span>xavierhenry@gmail.com</span>
+                            <span>{loggedUser.email}</span>
                           </div>
                           <div className="flex items-center gap-3 text-sm">
                             <Phone className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            <span>(88) 24565-875</span>
+                            <span>{loggedUser.phone || "add number"}</span>
                           </div>
                           <div className="flex items-center gap-3 text-sm">
                             <MdPayment className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
@@ -364,7 +366,7 @@ const Navbar = () => {
               {/* drawer header end */}
               {/* drawer body start */}
               <div>
-                {token ? (
+                {user ? (
                   <div className="flex items-center gap-4 m-3">
                     <div className="rounded-full h-12 w-12 overflow-hidden">
                       <Image
@@ -397,7 +399,7 @@ const Navbar = () => {
                 <p className="border-y-[1px] w-full ps-3 py-3 text-base font-semibold">
                   Map view
                 </p>
-                {token ? (
+                {user ? (
                   <Button onClick={handleLogout} className="m-3 py-2">
                     Logout
                   </Button>

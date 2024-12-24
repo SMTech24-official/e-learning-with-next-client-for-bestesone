@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/types/app/change-password/page.tsx", ".next/types/app/forgot-password/page.tsx", ".next/types/app/login/page.tsx"],
   "exclude": ["node_modules"]
 }

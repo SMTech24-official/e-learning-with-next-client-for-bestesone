@@ -4,13 +4,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/my-ui/button";
 import Image from "next/image";
 import loginImage from "@/assets/authImages/register-image.png";
-import { AuthPasswordField } from "./AuthForm/AuthPasswordField";
 import google from "@/assets/authImages/google.png";
 import facebook from "@/assets/authImages/Facebook.png";
 import apple from "@/assets/authImages/apple.png";
 import { RoundedButton } from "./AuthForm/AuthSocialRoundedBtn";
 import MyFormWrapper from "../ui/MyForm/MyFormWrapper/MyFormWrapper";
 import AuthInput from "./AuthForm/AuthInput";
+import { AuthPasswordField } from "./AuthForm/AuthPasswordField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/schema/signInSchema";
 import { useLoginMutation } from "@/redux/features/authSlice/authApi";
@@ -67,10 +67,13 @@ export function SignInForm() {
           placeholder="example@email.com"
         />
         <AuthPasswordField name="password" label="Password" />
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full mb-2">
           Log in
         </Button>
       </MyFormWrapper>
+      <Link href={"/forgot-password"} className="text-primary">
+        Forgot Password?
+      </Link>
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />

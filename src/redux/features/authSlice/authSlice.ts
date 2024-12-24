@@ -19,6 +19,7 @@ interface AuthState {
   token: string | null;
   user: any | null; // Assuming user object type
   registrationData: RegistrationData | null;
+  verifyEmail: string | null;
 }
 
 const initialState: AuthState = {
@@ -26,6 +27,7 @@ const initialState: AuthState = {
   token: null,
   user: null,
   registrationData: null,
+  verifyEmail: null,
 };
 
 const authSlice = createSlice({
@@ -42,6 +44,9 @@ const authSlice = createSlice({
       state.token = null;
       state.registrationData = null;
       state.user = null;
+    },
+    setVerifyEmail: (state, action: PayloadAction<{ verifyEmail: string }>) => {
+      state.verifyEmail = action.payload.verifyEmail;
     },
     saveRegistrationData: (state, action: PayloadAction<RegistrationData>) => {
       state.registrationData = action.payload;
@@ -65,6 +70,7 @@ const authSlice = createSlice({
 
 export const {
   setUser,
+  setVerifyEmail,
   logout,
   saveRegistrationData,
   updateRegistrationData,

@@ -16,6 +16,13 @@ export const authApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    sendOtp: builder.mutation({
+      query: (email) => ({
+        url: "/auth/forgot-password",
+        method: "POST",
+        body: email,
+      }),
+    }),
     getUser: builder.query({
       query: () => ({
         url: "/auth/profile",
@@ -23,8 +30,28 @@ export const authApi = baseApi.injectEndpoints({
       }),
       providesTags: ["User"],
     }),
+    verifyOtp: builder.mutation({
+      query: (data: { email: string; otp: string }) => ({
+        url: "/auth/verify-otp",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    resetPassword: builder.mutation({
+      query: (data: { password: string }) => ({
+        url: "/auth/reset-password",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation, useGetUserQuery } =
-  authApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useGetUserQuery,
+  useSendOtpMutation,
+  useVerifyOtpMutation,
+  useResetPasswordMutation
+} = authApi;
