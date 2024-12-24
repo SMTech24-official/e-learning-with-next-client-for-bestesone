@@ -37,13 +37,16 @@ const Navbar = () => {
   const router = useRouter();
   const token = useAppSelector((state: RootState) => state.auth.token);
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log(token);
 
-  const { data, error, isLoading } = useGetUserQuery(token);
-  const { data: user } = data || {};
-  const loggedUser = user?.student[0];
-  console.log(user);
-  console.log(user.student[0]);
+  const { data: user } = useGetUserQuery(token, {
+    selectFromResult: ({ data }) => ({
+      data: data?.data,
+    }),
+  });
+
+  const { student } = user || []
+  console.log("this is new data", user);
+  console.log(student);
 
   useEffect(() => {
     if (user && token) {
@@ -214,20 +217,22 @@ const Navbar = () => {
                   <div className="absolute right-0 top-14  w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                     <Card className="w-full">
                       <CardHeader className="space-y-6">
-                        <div className="flex items-center gap-3">
-                          <Avatar className="h-12 w-12">
-                            <AvatarImage src={loggedUser.profileImage} />
-                            <AvatarFallback>AS</AvatarFallback>
-                          </Avatar>
-                          <div className="space-y-1">
-                            <h2 className="font-semibold text-base">
-                              {loggedUser.name}
-                            </h2>
-                            <p className="text-xs text-muted-foreground">
-                              {loggedUser?.email || "demo@example.com"}
-                            </p>
+                        <Link className="cursor-pointer" href={"/profile/edit"}>
+                          <div className="flex items-center gap-3">
+                            <Avatar className="h-12 w-12">
+                              <AvatarImage src={student[0]?.profileImage} />
+                              <AvatarFallback>AS</AvatarFallback>
+                            </Avatar>
+                            <div className="space-y-1">
+                              <h2 className="font-semibold text-base">
+                                {student[0]?.name}
+                              </h2>
+                              <p className="text-xs text-muted-foreground">
+                                {student[0]?.email || "demo@example.com"}
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                         <div className="flex justify-between items-center gap-4">
                           <div className="flex flex-col bg-primary/10 w-full h-full rounded-md items-center gap-2 px-3 py-1">
                             <div className="rounded-md  p-1">
@@ -238,7 +243,9 @@ const Navbar = () => {
                               />
                             </div>
                             <div className="text-sm flex">
-                              <p className="font-medium">{loggedUser.enrolled || "0 Enrolled"}</p>
+                              <p className="font-medium">
+                                {student[0]?.enrolled || "0 Enrolled"}
+                              </p>
                             </div>
                           </div>
                           <div className="flex flex-col bg-primary/10 w-full h-full rounded-md items-center gap-2 px-3 py-1">
@@ -250,7 +257,9 @@ const Navbar = () => {
                               />
                             </div>
                             <div className="text-sm flex">
-                              <p className="font-medium">{loggedUser.coin} Coin</p>
+                              <p className="font-medium">
+                                {student[0]?.coin} Coin
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -260,27 +269,40 @@ const Navbar = () => {
                           <h3 className="font-semibold text-base">
                             Personal Info
                           </h3>
-                          <Button variant="ghost" size="sm" className="h-8 w-8">
-                            <FaRegEdit className="h-4 w-4" />
-                          </Button>
+                          <Link href={"/profile/edit"}>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 w-8"
+                            >
+                              <FaRegEdit className="h-4 w-4" />
+                            </Button>
+                          </Link>
                         </div>
                         <div className="space-y-3">
                           <div className="flex items-center gap-3 text-sm ">
                             <User className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            <span>{loggedUser.name}</span>
+                            <span>{student[0]?.name}</span>
                           </div>
                           <div className="flex items-center gap-3 text-sm">
                             <Mail className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            <span>{loggedUser.email}</span>
+                            <span className="truncate">
+                              {student[0]?.email}
+                            </span>
                           </div>
                           <div className="flex items-center gap-3 text-sm">
                             <Phone className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            <span>{loggedUser.phone || "add number"}</span>
+                            <span>{student[0]?.phone || "N/A"}</span>
                           </div>
-                          <div className="flex items-center gap-3 text-sm">
-                            <MdPayment className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
-                            Payment History
-                          </div>
+                          <Link
+                            className="block"
+                            href={"/payment/payment-history"}
+                          >
+                            <div className="flex items-center gap-3 text-sm">
+                              <MdPayment className="h-8 w-8 border border-[#72698633] p-1 rounded text-gray-600" />
+                              Payment History
+                            </div>
+                          </Link>
                           <Link
                             className="flex items-center gap-3 text-sm"
                             href={"/terms-and-condition"}

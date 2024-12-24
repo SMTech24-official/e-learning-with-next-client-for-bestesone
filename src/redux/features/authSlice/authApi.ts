@@ -8,6 +8,7 @@ export const authApi = baseApi.injectEndpoints({
         method: "POST",
         body: credentials,
       }),
+      invalidatesTags: ["User"],
     }),
     register: builder.mutation({
       query: (data) => ({
@@ -15,6 +16,7 @@ export const authApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["User"],
     }),
     sendOtp: builder.mutation({
       query: (email) => ({
@@ -44,6 +46,14 @@ export const authApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    updateUser: builder.mutation({
+      query: (data) => ({
+        url: "/users/profile",
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["User"],
+    }),
   }),
 });
 
@@ -53,5 +63,6 @@ export const {
   useGetUserQuery,
   useSendOtpMutation,
   useVerifyOtpMutation,
-  useResetPasswordMutation
+  useResetPasswordMutation,
+  useUpdateUserMutation,
 } = authApi;

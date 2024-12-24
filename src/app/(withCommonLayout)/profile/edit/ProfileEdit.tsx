@@ -8,7 +8,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import MyFormInput from "@/components/ui/MyForm/MyFormInput/MyFormInput";
 import { z } from "zod";
 import teacher from "@/assets/institute/teacherImage.png";
-import Image from "next/image";
+import {
+  useGetUserQuery,
+  useUpdateUserMutation,
+} from "@/redux/features/authSlice/authApi";
+import { useAppSelector } from "@/redux/hooks";
+import { toast } from "sonner";
+import { RootState } from "@/redux/store";
+import MyFormImageUploader from "@/components/AuthPage/AuthForm/MyFormImageUpload/MyFormImageUpload";
 
 const validationSchema = z.object({
   name: z
@@ -20,30 +27,112 @@ const validationSchema = z.object({
     .regex(
       /^[A-Za-z\s\-,'.]+$/,
       "Name can only contain letters, spaces, hyphens, commas, apostrophes, and dots"
-    ),
-  phone: z
+    )
+    .optional(),
+  phoneNumber: z
     .string()
-    .min(5, "Phone number must be at least 5 digits long")
+    .min(10, "Phone number must be at least 10 digits long")
     .max(20, "Phone number cannot exceed 20 digits")
     .regex(/^[\+\d\s\-\(\)]+$/, "Phone number can only contain numbers")
-    .refine((value) => !!value, { message: "Phone number is required" }),
+    .refine((value) => !!value, { message: "Phone number is required" })
+    .optional(),
+  image: z
+    .instanceof(File)
+    .refine((file) => file.type.startsWith("image/"), {
+      message: "Only image files are allowed",
+    })
+    .optional(),
   email: z
     .string()
-    .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Please enter a valid email address"),
+    .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Please enter a valid email address")
+    .optional(),
 
   message: z.string().optional(),
 });
 
 export default function ProfileEdit() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [updateUser] = useUpdateUserMutation();
+  const token = useAppSelector((state: RootState) => state.auth.token);
+  const { data: user } = useGetUserQuery(token, {
+    selectFromResult: ({ data }) => ({
+      data: data?.data,
+    }),
+  });
 
-  const handleSubmit = (data: any) => {
-    console.log(data);
+  const [img, setImg] = useState<File | string | null>(
+    user?.student[0]?.profileImage || null
+  );
+  const [name, setName] = useState(user?.student[0]?.name);
+  const [email, setEmail] = useState(user?.student[0]?.email);
+  const [phone, setPhone] = useState(user?.student[0]?.phoneNumber || 0);
+
+  const handleImageChange = (file: File | null) => {
+    setImg(file); // Update the image state
+    console.log("Selected Image:", file);
   };
-  const handleNameChange = () => {
-    console.log(name);
+
+  const handleImageUpload = async (file: File | null) => {
+    if (!file) {
+      toast.error("No file selected for upload");
+      return;
+    }
+
+    const formData = new FormData();
+    if (img) {
+      console.log(img);
+      formData.append("image", img);
+    }
+
+    const res = await updateUser(formData).unwrap();
+    console.log(res.data);
+    if (res?.data) {
+      toast.success(res?.data?.data?.message || "Image uploaded successfully");
+    } else {
+      toast.error(res?.data?.data?.error?.message || "Image upload failed");
+    }
+  };
+
+  const handleNameChange = async () => {
+    const formData = new FormData();
+    const body = { name: name };
+    formData.append("body", JSON.stringify(body));
+
+    const res = await updateUser(formData);
+    console.log(res.data);
+    if (res?.data) {
+      toast.success(res?.data?.data?.message);
+    } else {
+      toast.error(res?.data?.data?.error?.message);
+    }
+  };
+
+  const handleEmailChange = async () => {
+    const formData = new FormData();
+    const body = { email: email };
+    formData.append("body", JSON.stringify(body));
+
+    const res = await updateUser(formData);
+    console.log(res.data);
+    if (res?.data) {
+      toast.success(res?.data?.data?.message);
+    } else {
+      toast.error(res?.data?.data?.error?.message);
+    }
+  };
+
+  const handlePhoneChange = async () => {
+    const formData = new FormData();
+    const body = { phoneNumber: phone };
+    formData.append("body", JSON.stringify(body));
+    console.log(body);
+
+    const res = await updateUser(formData);
+    console.log(res.data);
+    if (res?.data) {
+      toast.success(res?.data?.data?.message);
+    } else {
+      toast.error(res?.data?.data?.error?.message);
+    }
   };
 
   return (
@@ -56,24 +145,26 @@ export default function ProfileEdit() {
         </CardHeader>
         <CardContent className="space-y-6">
           <MyFormWrapper
-            className={"flex flex-col gap-5 w-full md:max-w-lg "}
-            onSubmit={handleSubmit}
+            onSubmit={handleImageUpload}
             resolver={zodResolver(validationSchema)}
+            defaultValues={{
+              image: img || teacher,
+            }}
           >
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="h-24 w-24">
-                <Image src={teacher} alt="Profile picture" />
-              </div>
-              <Button variant="outline" className="px-5 py-2">
-                Change Picture
-              </Button>
-            </div>
+            <MyFormImageUploader
+              name="image"
+              defaultValue={img || teacher.src}
+              label="Profile Picture"
+              onChange={handleImageChange}
+              onSubmitChange={handleImageUpload}
+            />
           </MyFormWrapper>
           <div className="space-y-2">
             <MyFormWrapper
               className={"flex flex-col gap-5 w-full md:max-w-lg "}
               onSubmit={handleNameChange}
               resolver={zodResolver(validationSchema)}
+              defaultValues={{ name: name }}
             >
               <div className="flex  w-full gap-2">
                 <div className="w-full">
@@ -103,8 +194,9 @@ export default function ProfileEdit() {
           <div className="space-y-2">
             <MyFormWrapper
               className={"flex flex-col gap-5 w-full md:max-w-lg "}
-              onSubmit={handleSubmit}
+              onSubmit={handleEmailChange}
               resolver={zodResolver(validationSchema)}
+              defaultValues={{ email: email }}
             >
               <div className="flex gap-2">
                 <div className="w-full">
@@ -117,6 +209,7 @@ export default function ProfileEdit() {
                   />
                 </div>
                 <Button
+                  onClick={handleEmailChange}
                   variant="secondary"
                   className={`w-20 h-10 mt-8 ${
                     email?.length > 0 &&
@@ -132,13 +225,14 @@ export default function ProfileEdit() {
           <div className="space-y-2">
             <MyFormWrapper
               className={"flex flex-col gap-5 w-full md:max-w-lg "}
-              onSubmit={handleSubmit}
+              onSubmit={handlePhoneChange}
               resolver={zodResolver(validationSchema)}
+              defaultValues={{ phoneNumber: phone }}
             >
               <div className="flex gap-2">
                 <div className="w-full">
                   <MyFormInput
-                    name={"phone"}
+                    name={"phoneNumber"}
                     type={"number"}
                     label="Phone"
                     placeHolder="Enter your phone number"
@@ -146,6 +240,7 @@ export default function ProfileEdit() {
                   />
                 </div>
                 <Button
+                  onClick={handlePhoneChange}
                   variant="secondary"
                   className={`w-20 h-10 mt-8 ${
                     phone?.length > 0 &&

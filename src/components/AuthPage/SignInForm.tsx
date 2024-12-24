@@ -41,7 +41,7 @@ export function SignInForm() {
       router.push("/");
     } catch (error) {
       if (error) {
-        toast.error((error as any)?.data.message);
+        toast.error((error as any)?.data?.message);
       } else {
         toast.error("An unknown error occurred.");
       }
