@@ -108,7 +108,10 @@ const MyFormImageUploader = ({
                 {fileName && (
                   <button
                     type="button"
-                    onClick={() => onSubmitChange?.(field.value)} // Pass the file as an argument
+                    onClick={() => {
+                      onSubmitChange?.(field.value);
+                      handleRemoveImage();
+                    }} // Pass the file as an argument
                     className="px-4 py-2 text-white bg-primary rounded-md hover:bg-primary/70"
                   >
                     Change
